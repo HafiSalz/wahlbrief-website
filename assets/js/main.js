@@ -258,16 +258,42 @@ elements.copyButtons.forEach((btn) => {
     parent: btn,
     trigger: "manual",
   });
-  const clipboard = new ClipboardJS(btn);
-  clipboard.on("success", function (e) {
-    e.clearSelection();
-    tooltip.update();
-    tooltip.show();
-    setTimeout(() => {
-      tooltip.hide();
-    }, 2000);
-  });
-});
+
+  let timeout;
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    if (timeout) clearTimeout(timeout)
+
+    let text;
+    if (btn.dataset.clipboardText) {
+      text = btn.dataset.clipboardText
+    } else if (btn.dataset.clipboardTarget) {
+      const target = document.querySelector(btn.dataset.clipboardTarget)
+      if (target) {
+        text = target.innerText
+      }
+    }
+    if (!text) {
+      throw new Error("Could not find copy text")
+    }
+
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        tooltip.update();
+        tooltip.show();
+      })
+      .catch(() => {
+        console.error("Could not copy")
+      })
+      .finally(() => {
+        timeout = window.setTimeout(() => {
+          tooltip.hide()
+        }, 2000)
+      })
+  })
+})
 
 elements.copier.addEventListener("click", (event) => {
   const displayMessage = document.getElementById("final-message");
@@ -632,7 +658,7 @@ elements.searchInput?.addEventListener("keyup", (e) => {
 
     if (matchArray.length <= 0) {
         elements.suggestions.innerHTML =
-          "<div class='error'><i class='fas fa-times-circle me-2'></i><span>" + getTranslation("right.invalidZipCode") + "</span></div>";
+          "<div class='error'><i class='fas fa-times-circle me-2'></i><span>" + getTranslation("right.invalidZipcode") + "</span></div>";
       return;
     }
 
@@ -656,23 +682,6 @@ document.addEventListener("click", (event) => {
       "<i class='fas fa-check-circle me-2'></i>" + translatedText;
     displayMessage.classList.add("success");
   }
-});
-
-// --- Clipboard Functionality ---
-elements.copyButtons.forEach((btn) => {
-  const tooltip = new bootstrap.Tooltip(btn, {
-    parent: btn,
-    trigger: "manual",
-  });
-  const clipboard = new ClipboardJS(btn);
-  clipboard.on("success", function (e) {
-    e.clearSelection();
-    tooltip.update();
-    tooltip.show();
-    setTimeout(() => {
-      tooltip.hide();
-    }, 2000);
-  });
 });
 
 elements.copier.addEventListener("click", (event) => {
@@ -813,7 +822,6 @@ function checkform() {
         const emailcb2 = document.querySelector("#emailupdatesMobile");
 
         result.innerHTML = "<div class='error mt-3'><i class='fas fa-times-circle me-2'></i>" + getTranslation("right.invalidemail") + "</div>";
-        emailfield.value = "";
         emailcb1.checked = false;
         emailcb2.checked = false;
         emailfield.focus();
@@ -835,7 +843,9 @@ function submitForm() {
 
     const newsletterEndPoint = "https://fragdenstaat.de/newsletter/update/wahlbrief/subscribe-ajax/"
 
-    const data = new URLSearchParams(new FormData(document.querySelector("#subscribeform"))).toString();
+    const data = new URLSearchParams({
+      email: document.querySelector("#email").value,
+    });
     fetch(newsletterEndPoint, {
         method: "POST",
         mode: "cors",
@@ -867,7 +877,9 @@ function submitForm() {
 
 const checkListener = function() {
   if (this.checked) { 
-      if (checkform()) submitForm(); 
+      if (checkform()) {
+        submitForm()
+      }
   } else { 
       document.querySelector('#result').innerHTML = ''; 
   } return false;
