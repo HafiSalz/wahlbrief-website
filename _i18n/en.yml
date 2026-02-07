@@ -21,7 +21,7 @@ left:
   donate: "Donate"
   imprint: "Imprint"
   terms: "Terms"
-  about_bottom: "An <a href='https://github.com/Wahlbrief/wahlbrief-website' target='_blank' rel='noreferrer noopener'>open source project</a> by FragDenStaat."
+  about_bottom: "Wahlbrief is an <a href='https://github.com/Wahlbrief/wahlbrief-website' target='_blank' rel='noreferrer noopener'>open source project</a>."
   find: ""
   share: "Voting has never been so important."
   description: "Many people don't know how uncomplicated, simple and fast postal voting is. <b>Every vote counts:</b> Share and spread the word about postal voting now!"
@@ -171,6 +171,7 @@ about:
     subtitle: |
       wahlbrief is a project run by FragDenStaat for the 2026 state elections. We want as many people as possible to take part in the elections. <br /><br />There are many cases where postal voting is the easiest and most convenient way to vote. We help to apply for postal voting documents online from the relevant election office within 2 minutes.<br /><br /><br />
       <small><i>FragDenStaat is a project of the Open Knowledge Foundation Deutschland e.V., a non-partisan, non-profit association that campaigns for more participation.
+      <br /><br /> First supported by: <a href="https://www.mehr-demokratie.de/">Mehr Demokratie</a><br />
       <br /><br />Concept and realisation: Juris Vetra, Johann-Friedrich Salzmann<br />
       </small></i>
   right:

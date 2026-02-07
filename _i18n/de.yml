@@ -26,16 +26,16 @@ left:
   donate: "Spenden"
   imprint: "Impressum"
   terms: "Terms"
-  about_bottom: "Ein <a href='https://github.com/Wahlbrief/wahlbrief-website' target='_blank' rel='noreferrer noopener'>OpenSource Projekt</a> von FragDenStaat."
+  about_bottom: "Wahlbrief ist ein <a href='https://github.com/Wahlbrief/wahlbrief-website' target='_blank' rel='noreferrer noopener'>Open-Source-Projekt</a>."
   find: ""
   share: "Wählen war noch nie so wichtig."
   description: "Viele Menschen wissen nicht, wie unkompliziert, einfach und schnell die Briefwahl ist. <b> Jede Stimme zählt:</b> Jetzt Wahlbrief teilen und weiterverbreiten!"
-  donateTitle: "Das Projekt wird von FragDenStaat gefördert, bitte unterstützen auch Sie es mit einer Spende."
+  donateTitle: "Das Projekt wird von FragDenStaat betrieben, bitte unterstütze uns mit einer Spende."
   donateButton: "Jetzt spenden"
 right:
   zip: "Zuständiges Wahlamt suchen"
   description: "Wir benötigen zunächst die Postleitzahl der Meldeadresse.<br /> Zuständig für den Briefwahl-Antrag ist meist das Bürgeramt am Hauptwohnsitz."
-  tos: "<small>Wir übertragen und speichern keine persönlichen Daten. <br>Detaillierte Hinweise zum Datenschutz: <a href='/terms.html' target='_blank'>Datenschutzbestimmungen</a>. <br /></small>"
+  tos: "<small>Wir übertragen und speichern Ihre Daten nur auf ausdrücklichen Wunsch. <br>Detaillierte Hinweise zum Datenschutz: <a href='/terms.html' target='_blank'>Datenschutzbestimmungen</a>. <br /></small>"
   placeholder: "PLZ (Hauptwohnsitz)"
   button: "Wahlamt suchen"
   residence: "Persönliche Angaben"
@@ -177,6 +177,7 @@ about:
       wahlbrief ist ein Projekt von <a href='https://fragdenstaat.de/' target='_blank'>FragDenStaat</a> zu den Landtagswahlen 2026. Wir möchten, dass so viele Menschen wie möglich an der Wahl teilnehmen. <br /><br />Es gibt viele Fälle, in denen die Briefwahl die einfachste und bequemste Art ist, zu wählen. Wir helfen dabei, innerhalb von 2 Minuten die Briefwahl-Unterlagen online beim zuständigen Wahlamt zu beantragen.<br /><br /><br />
       <small><i>FragDenStaat ist ein Projekt des gemeinnützigen Open Knowledge Foundation Deutschland e.V.
 
+      <br /><br /> Ursprünglich gefördert von: <a href="https://www.mehr-demokratie.de/">Mehr Demokratie</a><br />
       <br /><br /> Konzept und Realisierung: Juris Vetra, Johann-Friedrich Salzmann<br />
       </small></i>
   right:
