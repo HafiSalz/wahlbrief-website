@@ -53,9 +53,12 @@ right:
   checkbox-address: "Specify different address for delivery"
   checkbox-description: "Otherwise the documents will be sent to the registration address"
   email-updates: "Receive email reminders to cast your ballot on time"
+  email-reminder: "Email reminder"
+  email-reminder-description: "We can remind you by email about filling in and sending out the elections forms."
+  email-newsletter: "Additionally receive the FragDenStaat newsletter about campaigns and investigations (German)."
   invalidemail: "Please provide a valid email address"
   successfulregistration: "Please check your mailbox, we have sent a confirmation link."
-  noprocess: "Sorry, we were unable to process your subscription."
+  checkform: "Please check your form inputs."
   shipping:
     address: "Shipping address"
     name: "First Name, if different"

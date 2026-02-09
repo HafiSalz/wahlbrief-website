@@ -35,7 +35,7 @@ left:
 right:
   zip: "Zuständiges Wahlamt suchen"
   description: "Wir benötigen zunächst die Postleitzahl der Meldeadresse.<br /> Zuständig für den Briefwahl-Antrag ist meist das Bürgeramt am Hauptwohnsitz."
-  tos: "<small>Wir übertragen und speichern Ihre Daten nur auf ausdrücklichen Wunsch. <br>Detaillierte Hinweise zum Datenschutz: <a href='/terms.html' target='_blank'>Datenschutzbestimmungen</a>. <br /></small>"
+  tos: "<small>Wir übertragen und speichern Ihre Daten nur auf ausdrücklichen Wunsch. <br>Siehe auch unsere <a href='/terms.html' target='_blank'>Datenschutzbestimmungen</a>. <br /></small>"
   placeholder: "PLZ (Hauptwohnsitz)"
   button: "Wahlamt suchen"
   residence: "Persönliche Angaben"
@@ -58,10 +58,12 @@ right:
   different-address: "Abweichende Adresse für den Versand angeben"
   checkbox-address: "Abweichende Adresse für den Versand angeben"
   checkbox-description: "Andernfalls werden die Unterlagen an die Meldeadresse zugestellt."
-  email-updates: "Erinnerungen an das rechtzeitige Ausfüllen der Unterlagen per E-Mail erhalten"
+  email-reminder: "E-Mail-Erinnerung"
+  email-reminder-description: "Wir können dich per E-Mail an das Ausfüllen und Abschicken der Unterlagen erinnern."
+  email-newsletter: "Zusätzlich den FragDenStaat-Newsletter zu aktuellen Aktionen und Recherchen abonnieren."
   invalidemail: "Bitte gültige E-Mail-Adresse angeben"
   successfulregistration: "Bitte Postfach überprüfen, wir haben einen Bestätigungs-Link versandt."
-  noprocess: "Es gab ein Problem bei der Registrierung."
+  checkform: "Bitte überprüfen Sie Ihre Angaben."
   shipping:
     address: "Versand-Adresse für die Unterlagen"
     name: "Vorname, falls abweichend"
