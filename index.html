@@ -5,7 +5,7 @@ layout: default
 <div class="container-fluid h-100">
     <div class="row h-100">
         <!-- Left side -->
-        <div id="left-side" class="col-lg-12 col-xl-6 background-primary pattern">
+        <div id="left-side" class="col-md-12 col-lg-6 background-primary pattern">
             <div class="container d-flex flex-column h-100 py-5 px-2 px-lg-5 overflow-auto">
                 <div class="row mb-4 mb-lg-5">
                     <div class="col-12">
@@ -204,7 +204,7 @@ layout: default
             </div>
         </div>
         <!-- Right side -->
-        <div id="right-side" class="col-lg-12 col-xl-6 offset-xl-6 offset-0">
+        <div id="right-side" class="col-md-12 col-lg-6">
             <div class="container d-flex flex-column h-100 py-3 py-lg-5 px-2 px-lg-5">
                 <div class="row">
                     <!-- Necessary nav for toggling steps from 1 to 3, hidden because we control them via JS -->
@@ -297,7 +297,7 @@ layout: default
                                         </button>
                                     </div>
                                 </div>
-                                <form name="main" class="mt-4">
+                                <form id="main-form" name="main" class="mt-4">
                                     <div class="row">
                                         <div class="col-12 col-lg-6 mb-3 mb-lg-0">
                                             <div class="form-floating">
@@ -320,9 +320,9 @@ layout: default
                                             </div>
                                         </div>
                                     </div>
-                                    <fieldset class="mt-3 px-3">
+                                    <fieldset id="birthday" class="mt-3 px-3">
                                         <legend>{% t right.birthday %}</legend>
-                                        <div class="row my-2">
+                                        <div class="row my-2 gx-1">
                                             <div class="col-4 col-lg-4">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" id="form-day"
@@ -371,7 +371,7 @@ layout: default
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-12 col-lg-3 mb-3 mb-lg-0">
+                                        <div class="col-12 col-md-4 mb-3 mb-lg-0">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control"
                                                     onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
@@ -382,7 +382,7 @@ layout: default
                                                 <label for="form-zip">{% t right.shipping.zipcode %}</label>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-9">
+                                        <div class="col-12 col-md-8">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control" id="form-city"
                                                     minlength="2" maxlength="60"
@@ -394,43 +394,6 @@ layout: default
                                         </div>
                                     </div>
 
-                                    <div class="row mt-3">
-
-                                            <div class="col-12">
-                                                <div class="form-floating">
-                                                    <input type="email" name="email" class="form-control" id="email"
-                                                        placeholder="{% t right.email %}" aria-label="{% t right.email %}"
-                                                        aria-describedby="{% t right.email %}">
-                                                    <label for="email">{% t right.email %}</label>
-                                                </div>
-
-                                                <input type=hidden name="htmlemail" value="1">
-                                                <input type="hidden" name="subscribe" value="subscribe" />
-                                            </div>
-
-                                            <div id="result"></div>
-
-                                    </div>
-
-                                    <div class="form-check mt-2 d-none d-lg-flex align-items-center">
-                                        <input class="form-check-input me-2" type="checkbox"
-                                            value=""
-                                            id="emailupdates">
-                                        <label class="form-check-label" for="emailupdates">
-                                            {% t right.email-updates %}
-                                        </label>
-                                    </div>
-
-                                    <div
-                                        class="d-flex justify-content-between align-items-center d-block d-lg-none mt-2">
-                                        <p class="mb-0">{% t right.email-updates %}</p>
-                                        <div>
-                                            <input class="tgl tgl-light" id="emailupdatesMobile" type="checkbox"
-                                                value="" />
-                                            <label class="tgl-btn" for="emailupdatesMobile"></label>
-                                        </div>
-                                    </div>
-
                                     <!-- <div class="background-gray-100 py-3 px-3 my-3">
                                         <div class="d-flex align-items-center justify-content-lg-start">
                                             <i class="fas fa-info-circle color-secondary me-2"></i>
@@ -438,15 +401,15 @@ layout: default
                                             </p>
                                         </div>
                                     </div> -->
-                                    <div class="form-check d-none d-lg-block">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    <div class="mt-3 form-check d-none d-lg-block">
+                                        <input class="form-check-input" type="radio" name="sameaddress"
                                             id="sameaddress" value="normal" checked>
                                         <label class="form-check-label" for="sameaddress">
                                             {% t right.same-address %}
                                         </label>
                                     </div>
                                     <div class="form-check d-none d-lg-block">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        <input class="form-check-input" type="radio" name="sameaddress"
                                             id="differentaddress" value="different">
                                         <label class="form-check-label" for="differentaddress">
                                             {% t right.different-address %}
@@ -462,90 +425,114 @@ layout: default
                                     <div class="col-10 d-block d-lg-none">
                                         <p class="small text-muted">{% t right.checkbox-description %}</p>
                                     </div>
-                                </form>
-                                <form id="newform" class="mt-3">
-                                    <h3 class="mb-3">{% t right.shipping.address %}</h3>
-                                    <div class="row">
-                                        <div class="col-12 col-lg-6 mb-3 mb-lg-0">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="form-newname"
-                                                    pattern="^[a-zA-Z-,.\säöüÄÖÜß]{2,}$" maxlength="60"
-                                                    placeholder="{% t right.shipping.name %}"
-                                                    aria-label="{% t right.shipping.name %}"
-                                                    aria-describedby="{% t right.shipping.name %}">
-                                                <label for="form-newname">{% t right.shipping.name %}</label>
+                                    <div id="newform" class="mt-3">
+                                        <h3 class="mb-3">{% t right.shipping.address %}</h3>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="form-newname"
+                                                        pattern="^[a-zA-Z-,.\säöüÄÖÜß]{2,}$" maxlength="60"
+                                                        placeholder="{% t right.shipping.name %}"
+                                                        aria-label="{% t right.shipping.name %}"
+                                                        aria-describedby="{% t right.shipping.name %}">
+                                                    <label for="form-newname">{% t right.shipping.name %}</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="form-newsurname"
+                                                        pattern="^[a-zA-Z-,.\säöüÄÖÜß\/]{2,}$" maxlength="60"
+                                                        placeholder="{% t right.shipping.surname %}"
+                                                        aria-label="{% t right.shipping.surname %}"
+                                                        aria-describedby="{% t right.shipping.surname %}">
+                                                    <label for="form-newsurname">{% t right.shipping.surname %}</label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="form-newsurname"
-                                                    pattern="^[a-zA-Z-,.\säöüÄÖÜß\/]{2,}$" maxlength="60"
-                                                    placeholder="{% t right.shipping.surname %}"
-                                                    aria-label="{% t right.shipping.surname %}"
-                                                    aria-describedby="{% t right.shipping.surname %}">
-                                                <label for="form-newsurname">{% t right.shipping.surname %}</label>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-lg-12 mb-0">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="form-address"
+                                                        pattern="^[a-zA-Z0-9-,.\säöüÄÖÜß\/]{2,}$" maxlength="60"
+                                                        placeholder="{% t right.shipping.adresszusatz %}"
+                                                        aria-label="{% t right.shipping.adresszusatz %}"
+                                                        aria-describedby="{% t right.shipping.adresszusatz %}">
+                                                    <label for="form-address">{% t right.shipping.adresszusatz %}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-lg-12 mb-0">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="form-newstreet"
+                                                        pattern="^[a-zA-Z0-9-,.\säöüÄÖÜß\/]{2,}$" maxlength="60"
+                                                        placeholder="{% t right.shipping.street %}"
+                                                        aria-label="{% t right.shipping.street %}"
+                                                        aria-describedby="{% t right.shipping.street %}">
+                                                    <label for="form-newstreet">{% t right.shipping.street %}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-lg-3 mb-3 mb-lg-0">
+                                                <div class="form-floating">
+                                                    <input type="text"
+                                                        onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                                                        oninput="this.value=this.value.slice(0,this.maxLength)"
+                                                        inputmode="numeric" class="form-control" id="form-newzip"
+                                                        minlength="5" maxlength="5" pattern="[0-9]{5}"
+                                                        placeholder="{% t right.shipping.zipcode %}"
+                                                        aria-label="{% t right.shipping.zipcode %}"
+                                                        aria-describedby="{% t right.shipping.zipcode %}">
+                                                    <label for="form-newzip">{% t right.shipping.zipcode %}</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-9">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="form-newcity"
+                                                        minlength="2" maxlength="60"
+                                                        placeholder="{% t right.shipping.city %}"
+                                                        aria-label="{% t right.shipping.city %}"
+                                                        aria-describedby="{% t right.shipping.city %}">
+                                                    <label for="form-newcity">{% t right.shipping.city %}</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12 col-lg-12 mb-0">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="form-address"
-                                                    pattern="^[a-zA-Z0-9-,.\säöüÄÖÜß\/]{2,}$" maxlength="60"
-                                                    placeholder="{% t right.shipping.adresszusatz %}"
-                                                    aria-label="{% t right.shipping.adresszusatz %}"
-                                                    aria-describedby="{% t right.shipping.adresszusatz %}">
-                                                <label for="form-address">{% t right.shipping.adresszusatz %}</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12 col-lg-12 mb-0">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="form-newstreet"
-                                                    pattern="^[a-zA-Z0-9-,.\säöüÄÖÜß\/]{2,}$" maxlength="60"
-                                                    placeholder="{% t right.shipping.street %}"
-                                                    aria-label="{% t right.shipping.street %}"
-                                                    aria-describedby="{% t right.shipping.street %}">
-                                                <label for="form-newstreet">{% t right.shipping.street %}</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12 col-lg-3 mb-3 mb-lg-0">
-                                            <div class="form-floating">
-                                                <input type="text"
-                                                    onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
-                                                    oninput="this.value=this.value.slice(0,this.maxLength)"
-                                                    inputmode="numeric" class="form-control" id="form-newzip"
-                                                    minlength="5" maxlength="5" pattern="[0-9]{5}"
-                                                    placeholder="{% t right.shipping.zipcode %}"
-                                                    aria-label="{% t right.shipping.zipcode %}"
-                                                    aria-describedby="{% t right.shipping.zipcode %}">
-                                                <label for="form-newzip">{% t right.shipping.zipcode %}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-9">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="form-newcity"
-                                                    minlength="2" maxlength="60"
-                                                    placeholder="{% t right.shipping.city %}"
-                                                    aria-label="{% t right.shipping.city %}"
-                                                    aria-describedby="{% t right.shipping.city %}">
-                                                <label for="form-newcity">{% t right.shipping.city %}</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
 
-                                <div class="row mt-4">
-                                    <div class="col-12 d-flex justify-content-end">
-                                        <button class="btn btn-preview" onclick="thirdpage();"><i
-                                                class="fas fa-eye me-2"></i>{%
-                                            t right.preview
-                                            %}</button>
+                                    <!-- Email -->
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <h4>{% t right.email-reminder %}</h4>
+                                            <p class="mb-1">{% t right.email-reminder-description %}</p>
+
+                                            <div class="form-floating">
+                                                <input type="email" name="email" class="form-control" id="email"
+                                                    placeholder="{% t right.email %}" aria-label="{% t right.email %}"
+                                                    aria-describedby="{% t right.email %}">
+                                                <label for="email">{% t right.email %}</label>
+                                            </div>
+                                            
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="checkbox" name="emailNewsletter"
+                                                id="email-newsletter" value="normal">
+                                                <label class="form-check-label" for="email-newsletter">
+                                                    {% t right.email-newsletter %}
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button class="btn btn-primary btn-lg" type="submit">
+                                                <i class="fas fa-eye me-2"></i>
+                                                {% t right.preview %}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                                 <p class="mb-0 mt-4 d-block d-lg-none">
                                     <small>
                                         {% t left.about_bottom %}

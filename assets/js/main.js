@@ -165,11 +165,14 @@ const elements = {
   searchInput: document.getElementById("zipcode"),
   suggestions: document.getElementById("autocomplete-list"),
   scrollTo: document.getElementById("next-click"),
-  birthdayForm: document.querySelector("fieldset"),
-  allBirthdayInputs: Array.from(document.querySelectorAll("fieldset input")),
+  birthdayForm: document.getElementById("birthday"),
+  allBirthdayInputs: Array.from(document.querySelectorAll("#birthday input")),
   copyButtons: Array.from(document.querySelectorAll(".copy")),
   sender: document.getElementById("send-text"),
   copier: document.getElementById("copy-text"),
+  email: document.getElementById("email"),
+  newsletter: document.getElementById("email-newsletter"),
+  mainform: document.getElementById("main-form")
 };
 
 const formElements = {
@@ -457,9 +460,7 @@ elements.allBirthdayInputs.forEach((input) => {
 // --- Navigation Functions ---
 
 function scrollTop() {
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 100);
+  document.getElementById("right-side").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 }
 
 function navigateTo(step) {
@@ -813,83 +814,54 @@ function getTranslation(key) {
   return document.getElementById(key).innerHTML
 }
 
-function checkform() {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(document.querySelector("#email").value)) {
-        const result = document.querySelector("#result");
-        const emailfield = document.querySelector("#email");
-        const emailcb1 = document.querySelector("#emailupdates");
-        const emailcb2 = document.querySelector("#emailupdatesMobile");
+function sendEmailRequest() {
+  const email = elements.email.value
+  if (!email) {
+    return
+  }
+  const wantsNewsletter = elements.newsletter.checked
+  const newsletterEndPoint = "https://fragdenstaat.de/newsletter/update/wahlbrief/subscribe-ajax/"
 
-        result.innerHTML = "<div class='error mt-3'><i class='fas fa-times-circle me-2'></i>" + getTranslation("right.invalidemail") + "</div>";
-        emailcb1.checked = false;
-        emailcb2.checked = false;
-        emailfield.focus();
-        return false;
-    }
-    return true;
-}
-
-function submitForm() {
-    successMessage =
-        "<div class='success mt-3'><i class='fas fa-check-circle me-2'></i>" + getTranslation("right.successfulregistration") + "</div>";
-    const result = document.querySelector("#result");
-    const emailfield = document.querySelector("#email");
-    const emailcb1 = document.querySelector("#emailupdates");
-    const emailcb2 = document.querySelector("#emailupdatesMobile");
-
-    // Clear previous messages
-    result.innerHTML = "";
-
-    const newsletterEndPoint = "https://fragdenstaat.de/newsletter/update/wahlbrief/subscribe-ajax/"
-
-    const data = new URLSearchParams({
-      email: document.querySelector("#email").value,
-    });
-    fetch(newsletterEndPoint, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: data,
-    }).then(res => {
-        if (res.ok) {
-            return res.text();
-        } else {
-            result.innerHTML = "<div class='error mt-3'><i class='fas fa-times-circle me-2'></i>" + getTranslation("right.noprocess") + "</div>";
-            emailfield.value = "";
-            emailfield.focus();
-            emailcb1.checked = false;
-            emailcb2.checked = false;
-        }
-    }).then(text => {
-        result.innerHTML = successMessage;
-    }).catch(e => {
-        console.error(e);
-        console.error("Failed to send data.");
-        result.innerHTML = "<div class='error mt-3'><i class='fas fa-times-circle me-2'></i>" + getTranslation("right.noprocess") + "</div>";
-        emailfield.value = "";
-        emailcb1.checked = false;
-        emailcb2.checked = false;
-    })
-}
-
-const checkListener = function() {
-  if (this.checked) { 
-      if (checkform()) {
-        submitForm()
+  const data = new URLSearchParams({
+    email: email,
+    keyword: wantsNewsletter ? "newsletter" : ""
+  });
+  fetch(newsletterEndPoint, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "x-requested-with": "XMLHttpRequest"
+      },
+      body: data,
+  }).then(res => {
+      if (res.ok) {
+          return res.text();
+      } else {
+        console.error("Bad response from reminder service")
       }
-  } else { 
-      document.querySelector('#result').innerHTML = ''; 
-  } return false;
+  }).then(text => {
+      console.log("Good response from reminder service")
+  }).catch(e => {
+      console.error(e);
+      console.error("Failed to send data.");
+  })
 }
 
-const emailUpdates = document.getElementById("emailupdates")
-if (emailUpdates) {
-  emailUpdates.addEventListener("change", checkListener)
-}
-const emailupdatesMobile = document.getElementById("emailupdatesMobile")
-if (emailupdatesMobile) {
-  emailupdatesMobile.addEventListener("change", checkListener)
-}
+
+elements.newsletter.addEventListener("change", () => {
+  if (elements.newsletter.checked) {
+    elements.email.setAttribute("required", "")
+  } else {
+    elements.email.removeAttribute("required")
+  }
+})
+
+elements.mainform.addEventListener("submit", (e) => {
+  e.preventDefault()
+  if (!elements.mainform.checkValidity()) {
+    return
+  }
+  sendEmailRequest()
+  thirdpage()
+})
