@@ -821,10 +821,12 @@ function sendEmailRequest() {
   }
   const wantsNewsletter = elements.newsletter.checked
   const newsletterEndPoint = "https://fragdenstaat.de/newsletter/update/wahlbrief/subscribe-ajax/"
+  const answer = Math.ceil(Math.PI * 2)
 
   const data = new URLSearchParams({
     email: email,
-    keyword: wantsNewsletter ? "newsletter" : ""
+    keyword: wantsNewsletter ? "newsletter" : "",
+    test: answer.toString()
   });
   fetch(newsletterEndPoint, {
       method: "POST",
