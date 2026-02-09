@@ -11,8 +11,8 @@ layout: default
                     <div class="col-12">
                         <div class="navbar navbar-expand-xl justify-content-between align-items-center">
                             <div>
-                                <a href="{{ site.url }}{{ site.baseurl | replace:'/','' }}">
-                                    <img src="{{ site.baseurl_root }}/assets/images/wahlbrief.svg" alt="FragDenStaat logo" width="200px">
+                                <a href="{{ site.baseurl }}/">
+                                    <img src="{{ site.baseurl }}/assets/images/wahlbrief.svg" alt="FragDenStaat logo" width="200px">
                                 </a>
                             </div>
 
@@ -160,13 +160,13 @@ layout: default
                         <a
                             href="mailto:?subject={% t right.sharing.email.subject %}&amp;body={% t right.sharing.email.body %}"><i
                                 class="fas fa-envelope"></i></a>
-                        <a href="https://facebook.com/sharer/sharer.php?u={{ site.url }}" target="_blank"
+                        <a href="https://facebook.com/sharer/sharer.php?u={{ site.share_url }}" target="_blank"
                             rel="noreferrer nopener"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://bsky.app/intent/compose?text={% t right.sharing.bluesky %}" target="_blank"
                             rel="noreferrer nopener"><i class="fa-brands fa-bluesky"></i></a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}" target="_blank"
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.share_url }}" target="_blank"
                             rel="noreferrer nopener"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://t.me/share/url?text={% t right.sharing.telegram %}&amp;url={{ site.url }}"
+                        <a href="https://t.me/share/url?text={% t right.sharing.telegram %}&amp;url={{ site.share_url }}"
                             target="_blank" rel="noreferrer nopener"><i class="fa-solid fa-paper-plane"></i></a>
                         <a href="https://wa.me/?text={% t right.sharing.whatsapp %}" target="_blank"
                             rel="noreferrer nopener"><i class="fa-brands fa-whatsapp"></i></a>
@@ -666,13 +666,13 @@ layout: default
                                         <a
                                             href="mailto:?subject={% t right.sharing.email.subject %}&amp;body={% t right.sharing.email.body %}"><i
                                                 class="fas fa-envelope"></i></a>
-                                        <a href="https://facebook.com/sharer/sharer.php?u={{ site.url }}"
+                                        <a href="https://facebook.com/sharer/sharer.php?u={{ site.share_url }}"
                                             target="_blank" rel="noreferrer nopener"><i class="fa-brands fa-facebook"></i></a>
                                         <a href="https://bsky.app/intent/compose?text={% t right.sharing.bluesky %}" target="_blank"
                                             rel="noreferrer nopener"><i class="fa-brands fa-bluesky"></i></a>
-                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}"
+                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.share_url }}"
                                             target="_blank" rel="noreferrer nopener"><i class="fa-brands fa-linkedin-in"></i></a>
-                                        <a href="https://t.me/share/url?text={% t right.sharing.telegram %}&amp;url={{ site.url }}"
+                                        <a href="https://t.me/share/url?text={% t right.sharing.telegram %}&amp;url={{ site.share_url }}"
                                             target="_blank" rel="noreferrer nopener"><i class="fa-solid fa-paper-plane"></i></a>
                                         <a href="https://wa.me/?text={% t right.sharing.whatsapp %}" target="_blank"
                                             rel="noreferrer nopener"><i class="fa-brands fa-whatsapp"></i></a>
