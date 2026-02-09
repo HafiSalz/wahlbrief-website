@@ -96,7 +96,7 @@ right:
     second: "2) Betreff übernehmen:"
     third: "3) Diese Hinweise löschen und unten stehenden Text beibehalten"
   letter:
-    title: "Sehr geehrte Damen und Herren,<br /><br />hiermit beantrage ich die Zusendung der Briefwahlunterlagen für die Landtagswahl 2026."
+    title: "Sehr geehrte Damen und Herren,<br /><br />hiermit beantrage ich die Zusendung der Briefwahlunterlagen für alle anstehenden Wahlen."
     name: "Vorname"
     surname: "Nachname"
     birthday: "Geburtsdatum"

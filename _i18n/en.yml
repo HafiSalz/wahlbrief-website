@@ -91,7 +91,7 @@ right:
     second: "2) Set the following as subject:"
     third: "3) Delete these instructions and keep the text below."
   letter:
-    title: "Sehr geehrte Damen und Herren,<br /><br />hiermit beantrage ich die Zusendung der Briefwahlunterlagen für die Landtagswahl 2026. Bitte senden Sie mir, falls möglich, englische Unterlagen zu."
+    title: "Sehr geehrte Damen und Herren,<br /><br />hiermit beantrage ich die Zusendung der Briefwahlunterlagen für alle anstehenden Wahlen. Bitte senden Sie mir, falls möglich, englische Unterlagen zu."
     name: "Vorname"
     surname: "Nachname"
     birthday: "Geburtsdatum"
