@@ -17,10 +17,10 @@
                         {% for lang in site.languages %}
                         {% assign lang_name = site.data[lang].l10n.lang_name %}
                         {% if lang == site.default_lang %}
-                        <li><a class="dropdown-item" href="{{ page.url | replace:'index.html','' }}">{{ lang_name }}</a>
+                        <li><a class="dropdown-item" href="{{ site.base_url_root }}{{ page.url | replace:'index.html','' }}">{{ lang_name }}</a>
                         </li>
                         {% else %}
-                        <li><a class="dropdown-item" href="{{ site.baseurl }}/{{ lang }}{{ page.url | replace:'index.html','' }}">{{
+                        <li><a class="dropdown-item" href="{{ site.baseurl_root }}/{{ lang }}{{ page.url | replace:'index.html','' }}">{{
                                 lang_name }}</a></li>
                         {% endif %}
                         {% endfor %}
