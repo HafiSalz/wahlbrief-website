@@ -152,7 +152,7 @@ const elements = {
   finalogaddress: document.getElementById("finalogaddress"),
   finalnewaddress: document.getElementById("finalnewaddress"),
   subject: document.getElementById("subject"),
-  instructionemail: document.getElementById("instruction-email"),
+  instructionemail: document.getElementById("instructionemail"),
   munname: document.getElementById("munname"),
   munemail: document.getElementById("munemail"),
   muniname: document.getElementById("muniname"),
