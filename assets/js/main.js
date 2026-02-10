@@ -457,7 +457,17 @@ function scrollTop() {
   document.getElementById("right-side").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 }
 
-function navigateTo(step) {
+window.addEventListener("popstate", (event) => {
+  let step = (event.state && event.state.step) || 1
+  navigateTo(step, true)
+});
+
+
+function navigateTo(step, nohistory) {
+  if (!nohistory) {
+    history.pushState({step: step}, "step " + step, "?step=" + step);
+  }
+
   const tab = new bootstrap.Tab(document.querySelector(`#step-${step}-tab`));
   tab.show();
   scrollTop();
@@ -496,15 +506,23 @@ function navigateTo(step) {
   }
 }
 
-function secondpage() {
+function getPostcodeValues() {
   const zipValue = elements.searchInput.value.split(" ")[0].trim();
   const cityValue = elements.searchInput.value.split(" ")[1]
     ? elements.searchInput.value.substr(
         elements.searchInput.value.indexOf(" ") + 1
       )
     : "";
+  return {
+    zip: zipValue,
+    city: cityValue
+  }
+}
 
-  if (zipValue.length >= 5 && is_valid_datalist_value(zipValue, cityValue)) {
+function secondpage() {
+  const data = getPostcodeValues()
+
+  if (data.zip.length >= 5 && is_valid_datalist_value(data.zip, data.city)) {
     navigateTo(2);
   }
 }
