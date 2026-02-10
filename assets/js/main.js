@@ -298,16 +298,10 @@ elements.copyButtons.forEach((btn) => {
   })
 })
 
-elements.copier.addEventListener("click", (event) => {
-  const displayMessage = document.getElementById("final-message");
-  displayMessage.innerHTML = "<i class='fas fa-check-circle me-2'></i>Copied!";
-  displayMessage.classList.add("success");
-});
-
 // --- Event Listeners ---
 
 // Handle radio button changes for address type
-const rad = document.getElementsByName("flexRadioDefault");
+const rad = document.getElementsByName("sameaddress");
 for (let i = 0; i < rad.length; i++) {
   rad[i].addEventListener("click", function () {
     setDisplayStyle(
@@ -676,8 +670,7 @@ document.addEventListener("click", (event) => {
     const displayMessage = document.getElementById("final-message");
 
     // Get translated text from the hidden element:
-    const translatedText =
-      document.getElementById("translation-sent").textContent;
+    const translatedText = getTranslation("translation-sent");
 
     displayMessage.innerHTML =
       "<i class='fas fa-check-circle me-2'></i>" + translatedText;
@@ -685,21 +678,25 @@ document.addEventListener("click", (event) => {
   }
 });
 
-elements.copier.addEventListener("click", (event) => {
-  const displayMessage = document.getElementById("final-message");
+if (elements.copier) {
+  elements.copier.addEventListener("click", (event) => {
+    const displayMessage = document.getElementById("final-message");
 
-  // Get translated text from the hidden element:
-  const translatedText =
-    document.getElementById("translation-copied").textContent;
+    // Get translated text from the hidden element:
+    const translatedText = getTranslation("translation-copied");
 
-  displayMessage.innerHTML =
-    "<i class='fas fa-check-circle me-2'></i>" + translatedText;
-  displayMessage.classList.add("success");
-});
+    displayMessage.innerHTML =
+      "<i class='fas fa-check-circle me-2'></i>" + translatedText;
+    displayMessage.classList.add("success");
+  });
+}
 
 // --- Data Loading and Filtering ---
 
 (async () => {
+  if (!elements.searchInput || !document.body.dataset.baseurl) {
+    return
+  }
   const endpoint = document.body.dataset.baseurl + "/assets/plz.json";
   const result = await fetch(endpoint).then((blob) => blob.json());
 
@@ -850,20 +847,22 @@ function sendEmailRequest() {
   })
 }
 
-
-elements.newsletter.addEventListener("change", () => {
-  if (elements.newsletter.checked) {
-    elements.email.setAttribute("required", "")
-  } else {
-    elements.email.removeAttribute("required")
-  }
-})
-
-elements.mainform.addEventListener("submit", (e) => {
-  e.preventDefault()
-  if (!elements.mainform.checkValidity()) {
-    return
-  }
-  sendEmailRequest()
-  thirdpage()
-})
+if (elements.newsletter) {
+  elements.newsletter.addEventListener("change", () => {
+    if (elements.newsletter.checked) {
+      elements.email.setAttribute("required", "")
+    } else {
+      elements.email.removeAttribute("required")
+    }
+  })
+}
+if (elements.mainform) {
+  elements.mainform.addEventListener("submit", (e) => {
+    e.preventDefault()
+    if (!elements.mainform.checkValidity()) {
+      return
+    }
+    sendEmailRequest()
+    thirdpage()
+  })
+}
