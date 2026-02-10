@@ -22,4 +22,4 @@ Das ursprüngliche Wahlbrief wurde von Juris Vetra und [Johann-Friedrich Salzman
 
 ## Lizenz und Weiterverwendung
 
-Lizenzbestimmungen siehe [MIT.](https://github.com/Wahlbrief/wahlbrief-website/blob/main/MIT-Lizenz.md)
+Lizenzbestimmungen siehe [MIT.](https://github.com/okfde/wahlbrief-website/blob/main/MIT-Lizenz.md)

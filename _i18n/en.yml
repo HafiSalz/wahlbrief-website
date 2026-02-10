@@ -21,7 +21,7 @@ left:
   donate: "Donate"
   imprint: "Imprint"
   terms: "Terms"
-  about_bottom: "Wahlbrief is an <a href='https://github.com/Wahlbrief/wahlbrief-website' target='_blank' rel='noreferrer noopener'>open source project</a>."
+  about_bottom: "Wahlbrief is an <a href='https://github.com/okfde/wahlbrief-website' target='_blank' rel='noreferrer noopener'>open source project</a>."
   find: ""
   share: "Voting has never been so important."
   description: "Many people don't know how uncomplicated, simple and fast postal voting is. <b>Every vote counts:</b> Share and spread the word about postal voting now!"

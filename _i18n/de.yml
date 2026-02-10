@@ -26,7 +26,7 @@ left:
   donate: "Spenden"
   imprint: "Impressum"
   terms: "Terms"
-  about_bottom: "Wahlbrief ist ein <a href='https://github.com/Wahlbrief/wahlbrief-website' target='_blank' rel='noreferrer noopener'>Open-Source-Projekt</a>."
+  about_bottom: "Wahlbrief ist ein <a href='https://github.com/okfde/wahlbrief-website' target='_blank' rel='noreferrer noopener'>Open-Source-Projekt</a>."
   find: ""
   share: "Wählen war noch nie so wichtig."
   description: "Viele Menschen wissen nicht, wie unkompliziert, einfach und schnell die Briefwahl ist. <b> Jede Stimme zählt:</b> Jetzt Wahlbrief teilen und weiterverbreiten!"
