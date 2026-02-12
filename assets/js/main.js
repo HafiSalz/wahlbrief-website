@@ -136,6 +136,21 @@ function getContent(link) {
 
 const zips = []; // Array to store ZIP code data
 
+const elections = [
+  {state: "BW", stateName: "Baden-Württemberg", date: "2026-03-08", name: "Landtagswahl"},
+  {state: "BY", stateName: "Bayern", date: "2026-03-08", name: "Wahlen zu Kreistagen, Stadträten, Gemeinderäten"},
+  {state: "HE", stateName: "Hessen", date: "2026-03-15", name: "Wahlen zu Kreistagen, Stadtverordnetenversammlungen, Gemeindevertretungen, Ortsbeiräten"},
+  {state: "RP", stateName: "Rheinland-Pfalz", date: "2026-03-22", name: "Landtagswahl"},
+  {state: "ST", stateName: "Sachsen-Anhalt", date: "2026-09-06", name: "Landtagswahl"},
+  {state: "NI", stateName: "Niedersachsen", date: "2026-09-13", name: "Kommunalwahlen"},
+  {state: "BE", stateName: "Berlin", date: "2026-09-20", name: "Abgeordnetenhauswahl"},
+  {state: "MV", stateName: "Mecklenburg-Vorpommern", date: "2026-09-20", name: "Landtagswahl"},
+].map(e => ({
+  ...e,
+  date: new Date(e.date)
+}))
+
+
 // --- DOM Elements ---
 
 const elements = {
@@ -539,9 +554,18 @@ function backtosecondpage() {
   navigateTo(2);
 }
 
+function formatDate(d) {
+  if (typeof d === "number") {
+    d = new Date(d)
+  }
+  return `${d.getDate()}.${d.getMonth() + 1}.`
+}
+
 // --- ZIP Code Validation and Autocomplete ---
 
-let lastEmail = null;
+let selectedEmail = null;
+let selectedPlace = null
+let selectedElection
 
 function is_valid_datalist_value(inputValue, cityValue) {
   onEnter(); // Selects the item even if suggestion is not selected
@@ -549,11 +573,12 @@ function is_valid_datalist_value(inputValue, cityValue) {
     (item) =>
       item.PLZ.toString() == inputValue &&
       item.ORT.toString() === cityValue &&
-      (lastEmail ? item["E-Mail"].toString() == lastEmail : true)
+      (selectedEmail ? item["E-Mail"].toString() == selectedEmail : true)
   );
 
   if (filtered.length > 0) {
     const data = filtered[0];
+    selectedPlace = data
     updateTextContent({
       munname: data.ORT,
       munemail: atob(data["E-Mail"]),
@@ -564,6 +589,30 @@ function is_valid_datalist_value(inputValue, cityValue) {
 
     formElements.city.value = data.ORT;
     formElements.zip.value = data.PLZ;
+
+
+    // Hide all
+    document.querySelectorAll("#election-hints .election-hint").forEach((el) => {el.style.display = "none"})
+    selectedElection = elections.filter(e => e.state === data.state)[0]
+    if (selectedElection == undefined) {
+      document.getElementById("election-hint-none").style.display = "block"
+    } else {
+      const MIN_DAYS = 6
+      const day = 1000 * 60 * 60 * 24
+      const todayDate = new Date()
+      const today = todayDate.getTime()
+      const electionTime = selectedElection.date.getTime()
+      const shippingDateMin = Math.max(today + (5 * day), electionTime - (30 * day))
+      const shippingDateMax = Math.max(Math.max(shippingDateMin, today + (21 * day)), electionTime - (MIN_DAYS * day))
+      const daysLeft = Math.floor((electionTime - today) / day)
+      let arrival = `${formatDate(shippingDateMin)} – ${formatDate(shippingDateMax)}`
+      document.getElementById("arrival-date").innerText = arrival
+      if (daysLeft < MIN_DAYS) {
+        document.getElementById("election-hint-late").style.display = "block"
+      } else {
+        document.getElementById("election-hint-normal").style.display = "block"
+      }
+    }
 
     formElements.zip.dispatchEvent(
       new Event("input", { bubbles: true, cancellable: true })
@@ -662,7 +711,8 @@ elements.searchInput?.addEventListener("keyup", (e) => {
 
       div.addEventListener("click", () => {
         elements.searchInput.value = value;
-        lastEmail = place["E-Mail"];
+        selectedEmail = place["E-Mail"];
+        selectedPlace = place
         elements.suggestions.innerHTML = "";
       });
 
@@ -835,13 +885,22 @@ function sendEmailRequest() {
     return
   }
   const wantsNewsletter = elements.newsletter.checked
-  const newsletterEndPoint = "https://fragdenstaat.de/newsletter/update/wahlbrief/subscribe-ajax/"
+  const state = selectedPlace.state.toLowerCase()
+  const newsletterEndPoint = `https://fragdenstaat.de/newsletter/update/wahlbrief-${state}/subscribe-ajax/`
   const answer = Math.ceil(Math.PI * 2)
+
+  const userData = new URLSearchParams({
+    ars: selectedPlace.ars,
+    state: selectedPlace.state,
+    postcode: selectedPlace.ZIP,
+    place: selectedPlace.ORT,
+    newsletter: wantsNewsletter ? "1" : "",
+  })
 
   const data = new URLSearchParams({
     email: email,
-    keyword: wantsNewsletter ? "newsletter" : "",
-    test: answer.toString()
+    test: answer.toString(),
+    data: userData.toString()
   });
   fetch(newsletterEndPoint, {
       method: "POST",

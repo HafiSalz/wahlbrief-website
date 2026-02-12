@@ -54,6 +54,8 @@ right:
   month: "Monat"
   year: "Jahr"
   arrival: "Voraussichtliche Zustellung der Briefwahl-Unterlagen:"
+  arrivallate: "Ihre Briefwahlunterlagen werden für die aktuelle Wahl nicht mehr rechtzeitig ankommen. Wir schicken Ihnen gerne eine Erinnerung zur nächsten Wahl."
+  noelections: "Wir wissen von keinen aktuellen Wahlen in Ihrem Bundesland. Wir schicken Ihnen gerne eine Erinnerung zur nächsten Wahl."
   same-address: "Unterlagen an die Meldeadresse versenden"
   different-address: "Abweichende Adresse für den Versand angeben"
   checkbox-address: "Abweichende Adresse für den Versand angeben"

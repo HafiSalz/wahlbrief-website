@@ -48,6 +48,8 @@ right:
   month: "Month"
   year: "Year"
   arrival: "Estimated delivery of postal voting documents:"
+  arrivallate: "Your postal voting documents will not arrive in time for the current election. We will be happy to send you a reminder for the next election."
+  noelections: "We don't know about any upcoming elections in your federal state. We will be happy to send you a reminder for the next election."
   same-address: "Send documents to the registration address"
   different-address: "Specify different address for delivery"
   checkbox-address: "Specify different address for delivery"
