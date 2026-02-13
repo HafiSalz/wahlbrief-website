@@ -2,7 +2,7 @@ title: Wahlbrief - Briefwahl zur Landtagswahl beantragen
 email: info@fragdenstaat.de
 description: >-
   Jetzt die Unterlagen zur Briefwahl beantragen: Schnell, bequem und online. Wahlbrief erstellt in 2 Minuten den Online-Antrag.
-baseurl: "/wahlbrief-website"
+baseurl: ""
 repository: okfde/wahlbrief-website
 share_url: "https://wahlbrief.de/"
 github_username: Wahlbrief
