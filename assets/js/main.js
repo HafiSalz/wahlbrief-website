@@ -762,10 +762,11 @@ if (elements.copier) {
 // --- Data Loading and Filtering ---
 
 (async () => {
-  if (!elements.searchInput || !document.body.dataset.baseurl) {
+  if (!elements.searchInput) {
     return
   }
-  const endpoint = document.body.dataset.baseurl + "/assets/plz.json";
+  const baseurl = document.body.dataset.baseurl || ""
+  const endpoint = baseurl + "/assets/plz.json";
   const result = await fetch(endpoint).then((blob) => blob.json());
 
   const sorted = result.sort((a, b) => {
