@@ -13,7 +13,7 @@
       invalid: "is-invalid",
     },
     urls: {
-      data: "https://raw.githubusercontent.com/Wahlbrief/wahlbrief-website/main/assets/plz.json",
+      data: "/assets/plz.json",
     },
   };
 
