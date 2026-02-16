@@ -3,608 +3,480 @@ layout: page
 ---
 
 <div class="container-fluid h-100">
-    <div class="row h-100">
-        <!-- Left side -->
-        <div id="left-side" class="col-md-12 col-lg-6 background-primary pattern">
-            <div class="container d-flex flex-column flex-fill h-100 py-5 px-2 px-lg-5">
-                <div class="row mb-5">
-                    <div class="col-12">
-                        <div class="navbar navbar-expand-xl justify-content-between align-items-center">
-                            <div>
-                                <a href="{{ site.baseurl }}/">
-                                    <img src="{{ site.baseurl_root }}/assets/images/wahlbrief.svg" alt="FragDenStaat logo" width="200px">
-                                </a>
-                            </div>
-
-                            <div class="d-flex d-lg-none align-items-center justify-content-between">
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle top-item" type="button" id="dropdownMenu3"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fas fa-globe me-1"></i>
-                                        {% for lang in site.languages %}
-                                        {% assign lang_short = site.data[lang].l10n.lang_short %}
-                                        {% if lang == site.lang %}
-                                        {{ lang_short }}
-                                        {% endif %}
-                                        {% endfor %}
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                        {% for lang in site.languages %}
-                                        {% assign lang_name = site.data[lang].l10n.lang_name %}
-                                        {% if lang == site.default_lang %}
-                                        <li><a class="dropdown-item" href="{{ site.baseurl_root }}{{ page.url }}">{{ lang_name }}</a></li>
-                                        {% else %}
-                                        <li><a class="dropdown-item" href="{{ site.baseurl_root }}/{{ lang }}{{ page.url }}">{{ lang_name
-                                                }}</a></li>
-                                        {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="d-lg-block d-none">
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <i class="fas fa-globe me-1"></i>
-                                        {% for lang in site.languages %}
-                                        {% assign lang_name = site.data[lang].l10n.lang_name %}
-                                        {% if lang == site.lang %}
-                                        {{ lang_name }}
-                                        {% endif %}
-                                        {% endfor %}
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                        {% for lang in site.languages %}
-                                        {% assign lang_name = site.data[lang].l10n.lang_name %}
-                                        {% if lang == site.default_lang %}
-                                        <li><a class="dropdown-item" href="{{ site.baseurl_root }}{{ page.url }}">{{ lang_name }}</a></li>
-                                        {% else %}
-                                        <li><a class="dropdown-item" href="{{ site.baseurl_root }}/{{ lang }}{{ page.url }}">{{ lang_name
-                                                }}</a></li>
-                                        {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="d-lg-none">
-                                <button class="navbar-toggler" onclick="openNav()"><img
-                                        src="{{ site.baseurl_root }}/assets/images/burger.svg"></button>
-                                {% include nav-mobile.html %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <h1>{% t terms.left.title %}</h1>
-                        <p class="subtitle">{% t terms.left.subtitle %}</p>
-                    </div>
-                </div>
-
-                <div class="d-block d-lg-none mt-5 scrollIndicator">
-                    <div class="container">
-                        <div class="text-center">
-                            <button onclick="window.scrollTo(0,document.body.scrollHeight);"><i
-                                    class="fas fa-2x fa-chevron-down"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-auto d-none d-lg-block">
-                    <div class="col-12">
-                        {% include nav.html %}
-                        {% include footer.html %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Right side -->
-        <div class="col-md-12 col-lg-6">
-            <div class="container d-flex flex-column h-100 py-5 px-2 px-lg-4">
-                <div class="row h-100 d-flex justify-content-between">
-                    <div class="col-12">
-                        <h2 class="mb-3">{% t terms.right.title %}</h2>
-
-		<h1>Datenschutzerklärung
-			wahlbrief.de</h1>
-		<h2>
-			Einleitung
-			und Begriffe</h2>
-		<h3>
-			Allgemein</h3>
-		<p>
-			Mit
-			dem Betrieb der „Wahlbrief“-Webseite mit der URL
-			<a href="https://wahlbrief.de/">https://wahlbrief.de</a>
-			(im Folgenden „Webseite“ genannt) verarbeiten wir
-			personenbezogene Daten. Diese werden von uns vertraulich behandelt
-			und nach den geltenden Gesetzen – insbesondere der
-			<a href="https://de.wikipedia.org/wiki/Datenschutz-Grundverordnung">Datenschutzgrundverordnung</a>
-			(DSGVO), dem <a href="https://www.gesetze-im-internet.de/bdsg_2018/">Bundesdatenschutzgesetz</a>
-			(BDSG) und dem <a href="https://www.gesetze-im-internet.de/ttdsg/">Gesetz
-				über den Datenschutz und den Schutz der Privatsphäre in der
-				Telekommunikation und bei digitalen Diensten</a>
-			(TDDDG) – verarbeitet. Mit diesen Datenschutzbestimmungen wollen
-			wir Sie darüber informieren, welche personenbezogenen Daten wir von
-			Ihnen erheben, zu welchen Zwecken und auf welcher Rechtsgrundlage wir
-			sie verwenden und gegebenenfalls wem wir sie offenlegen. Darüber
-			hinaus werden wir Ihnen erklären, welche Rechte Ihnen zur Wahrung
-			und Durchsetzung Ihres Datenschutzes zustehen.
-		</p>
-
-
-
-
-		<h3>
-			Begriffe</h3>
-
-
-
-		<p>
-			Unsere
-			Datenschutzbestimmungen enthalten Fachbegriffe, die in der DSGVO und
-			dem BDSG stehen. Zu Ihrem besseren Verständnis wollen wir diese
-			Begriffe in einfachen Worten vorab erklären:
-		</p>
-
-		<p>
-			<b>2.1
-				Personenbezogene Daten</b>
-		</p>
-		<p>
-			„Personenbezogene
-			Daten“ sind alle Informationen, die sich auf eine identifizierte
-			oder identifizierbare Person beziehen (<a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02016R0679-20160504#id-10c28e5a-6d3f-4086-93e7-748c270d368b">Art.
-				4 Nr. 1 DSGVO</a>).
-			Angaben einer identifizierten Person können z. B. der Name oder die
-			E-Mail-Adresse sein. Personenbezogen sind aber auch Daten, bei denen
-			die Identität nicht unmittelbar ersichtlich ist, sich aber ermitteln
-			lässt, indem man eigene oder fremde Informationen kombiniert und so
-			erfährt um wen es sich handelt. Eine Person wird z. B. über die
-			Angabe Ihrer Anschrift oder Bankverbindung, Ihres Geburtsdatums oder
-			Benutzernamens, Ihrer IP-Adressen und/oder Standortdaten
-			identifizierbar. Relevant sind hier alle Informationen, die in
-			irgendeiner Weise einen Rückschluss auf eine Person zulassen.
-		</p>
-
-		<p>
-			<b>2.2
-				Verarbeitung</b>
-		</p>
-		<p>
-			Unter
-			einer „Verarbeitung“ versteht <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02016R0679-20160504#id-10c28e5a-6d3f-4086-93e7-748c270d368b">Art.
-				4 Nr. 2 DSGVO</a>
-			jeden Vorgang im Zusammenhang mit personenbezogenen Daten. Dies
-			betrifft insbesondere das Erheben, das Erfassen, die Organisation,
-			das Ordnen, die Speicherung, die Anpassung oder Veränderung, das
-			Auslesen, das Abfragen, die Verwendung, die Offenlegung,
-			Übermittlung, Verbreitung oder eine andere Form der Bereitstellung,
-			den Abgleich oder die Verknüpfung, die Einschränkung, das Löschen
-			oder die Vernichtung von personenbezogenen Daten.
-		</p>
-
-		<h1>
-			Verantwortliche
-			und Datenschutzbeauftragte</h1>
-
-
-		<h3>
-			Verantwortliche</h3>
-
-
-
-		<p>
-			Verantwortlich
-			für die Datenverarbeitung ist:</p>
-		<p>
-			Verein:
-			Open Knowledge Foundation Deutschland e.V. (Projekt FragDenStaat)
-			(„wir“)<br>
-			Gesetzlicher
-			Vertreter: Daniel Dietrich, Kristina Klein, Felix Reda, Lea Gimpel,
-			Gabriele C. Klug, Stefan Heumann (Vorstand)<br>
-			Anschrift:
-			Singerstr. 109, 10179 Berlin<br>
-			Fax:
-			+49 30 978 942 30<br>
-			E-Mail:
-			<a href="mailto:info@fragdenstaat.de">info@fragdenstaat.de</a>
-		</p>
-
-
-
-
-		<h3>
-			Datenschutzbeauftragte</h3>
-
-
-
-		<p>
-			Wir
-			haben für unseren Verein eine externe Datenschutzbeauftragte
-			bestellt. Sie erreichen sie unter:<br>
-			Name:
-			Beata Hubrig</p>
-		<p>
-			E-Mail:
-			<a href="mailto:datenschutz@okfn.de">datenschutz@okfn.de</a>
-		</p>
-
-		<h1>
-			Verarbeitungsrahmen</h1>
-
-		<p>
-			<b>VERARBEITUNGSRAHMEN:
-				wahlbrief.de</b>
-		</p>
-		<p>
-			Im
-			Rahmen unserer „wahlbrief.de“-Webseite verarbeiten wir die
-			nachfolgend im Abschnitt D. im Einzelnen aufgeführten
-			personenbezogenen Daten von Ihnen. Wir verarbeiten nur Daten von
-			Ihnen, die Sie aktiv auf unserer Webseite angeben oder die Sie bei
-			der Nutzung unseres Angebotes automatisch zur Verfügung stellen.
-		</p>
-		<p>
-			Sofern
-			wir uns bei der Verarbeitung Ihrer personenbezogenen Daten der Hilfe
-			externer Dienstleister bedienen, erfolgt dies im Rahmen einer
-			sogenannten Auftragsverarbeitung, bei der wir als Auftraggeber
-			unseren Auftragnehmern gegenüber weisungsbefugt sind.
-		</p>
-		<p>
-			Zum
-			Betrieb unserer Webseite setzen wir für das Hosting einen externen
-			Dienstleister ein. Wir hosten unsere Webseite über den Dienst Github
-			Pages beim externen Anbieter Github (GitHub Inc., 88 Colin P Kelly Jr
-			St, San Francisco, CA 94107 USA) auf Servern in den USA. Weitere
-			Informationen zum Datenschutz bei Github finden Sie unter:
-			<b><a href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages">https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages</a></b>.
-			Diese Datenübermittlung in Drittstaaten erfolgt auf Grundlage der
-			sogenannten EU-Standardvertragsklauseln (SCCs) und des EU-US Data
-			Privacy Framework (<b><a href="https://www.dataprivacyframework.gov/">https://www.dataprivacyframework.gov/</a></b>).
-			Github erläutert die Transfermechanismen unter
-			<b><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#international-data-transfers">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#international-data-transfers</a></b>
-			und
-			<b><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#data-privacy-framework-dpf">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#data-privacy-framework-dpf</a></b>.
-
-		</p>
-		<p>
-			Eine
-			Datenübermittlung in Drittstaaten findet durch uns im Übrigen nicht
-			statt und ist auch nicht geplant.
-		</p>
-
-
-		<p>
-			<b>Die
-				Verarbeitung im Einzelnen </b>
-		</p>
-
-
-
-
-
-		<h3>BEREITSTELLUNG
-			DER WEBSEITE UND SERVER-LOGFILES GITHUB</h3>
-
-
-
-		<p>
-			Bei
-			jedem Aufruf der Webseite erfasst unser Hosting-Anbieter Github
-			automatisch Informationen, die Ihr Browser an den Github-Server
-			übermittelt. Diese werden auch in den sogenannten Logfiles von
-			Github gespeichert. Die Informationen umfassen IP-Adresse, die
-			Adresse der vorher besuchten Website (Referer Anfrage-Header), Datum
-			und Uhrzeit der Anfrage, Zeitzonendifferenz zur Greenwich Mean Time,
-			Inhalt der Anforderung, HTTP-Statuscode, übertragene Datenmenge,
-			Website, von der die Anforderung kommt und Informationen zu Browser
-			und Betriebssystem. Die Informationen werden von Github zur
-			Auslieferung der Webseite, der Aufrechterhaltung des technischen
-			Betriebs der Server und zur Gewährleistung der Stabilität und
-			Sicherheit verarbeitet. Wir haben keinerlei Zugriff auf diese
-			Server-Logfiles. Ein wie auch immer geartetes Tracking der
-			Webseitenbesucher:innen durch Github erfolgt nicht.</p>
-
-        <h3 id="Newsletter">Newsletter (Erinnerungsservice)</h3>
-        <p>
-            Für den Versand des Newsletters (Erinnerungsservice) erfassen wir zusätzlich Ihre
-            E-Mail-Adresse, Ihre PLZ und Ihren Ort. Diese Daten werden für die Dauer des Abonnements
-            verarbeitet. Wenn Sie sich wieder austragen, wird auch Ihre E-Mail-Adresse
-            gelöscht.
-        </p>
-
-        <p>
-            Die Anmeldung erfolgt nach dem so genannten Double-Opt-In-Verfahren. Das
-            bedeutet, dass nach der Anmeldung eine Bestätigung der Angaben erfolgen
-            muss. Erst nach erfolgreicher Bestätigung wird die Eintragung aktiviert und Sie
-            erhalten anschließend den Newsletter (Erinnerungsservice). Das Verfahren soll verhindern,
-            dass fremde E-Mail-Adressen in den Newsletter (Erinnerungsservice) eingetragen werden.
-        </p>
-
-        <p>
-            Bei der Verarbeitung dieser Daten stützen wir uns auf die
-            Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO sowie unsere berechtigten
-            Interessen nach Art. 6 Abs. 1 lit. f DSGVO. Ein Widerruf der Einwilligung ist
-            jederzeit möglich. Die personenbezogenen Daten werden zum Zweck der
-            zielgerichteten Information sowie des Direktmarketings verarbeitet.
-        </p>
-
-		<p>
-			<b>3.
-				MATOMO</b>
-		</p>
-		<p>
-			<b>3.1
-				Beschreibung der Verarbeitung</b>
-		</p>
-		<p>
-			FragDenStaat
-			setzt auf der „wahlbrief.de“-Webseite „Matomo“ ein, eine
-			Webanalysesoftware der Innocraft Ltd., 150 Willis St, 6011
-			Wellington, New Zealand. Matomo ist eine Open Source Software, die
-			wir als Dienst selbst (und zwar nicht auf Github-Servern) betreiben.
-			Wir verwenden Matomo ohne den Einsatz von Cookies und ohne sog.
-			Fingerprinting, sondern nur auf Basis einer config-ID, die sich alle
-			24 Stunden ändert. Im Rahmen der Webanalyse über Matomo wird Ihre
-			IP-Adresse ausschließlich um die letzten drei Stellen gekürzt
-			erfasst, sodass eine Zuordnung nicht möglich ist (sogenanntes
-			IP-Masking). Die von Matomo erstellten Statistiken beinhalten
-			insbesondere, wie viele Nutzer unsere Website besuchen, aus welchem
-			Land der Zugriff erfolgt, welche Unterseiten aufgerufen werden und
-			über welche Links oder Suchbegriffe Besucher auf unsere Webseite
-			gelangen. Die erfassten Informationen werden an unseren Server
-			übertragen und allein dort gespeichert. Eine Weitergabe an Dritte –
-			insbesondere an die Innocraft Ltd. – erfolgt nicht. Wir werden die
-			anonymisierten Matomo-Analysedaten auch im Rahmen unseres internen
-			FragDenStaat-Dashboards (Ziffer D. 20 der
-			<a href="https://fragdenstaat.de/datenschutzerklaerung/#-20--fragdenstaat-dashboard">FragDenStaat-Datenschutzerklärung</a>)
-			verarbeiten. <!-- 
-Wird das auch auf dieser Seite gemacht? Fließen die Daten in das Dashboard? -->
-		</p>
-
-		<p>
-			<b>3.2
-				Zweck</b>
-		</p>
-		<p>
-			Die
-			Verarbeitung erfolgt, um die Nutzung von „wahlbrief.de“
-			auswerten zu können. Durch den Verzicht auf Cookies und
-			Fingerprinting können wir zwar sehen, wie häufig eine Seite
-			aufgerufen worden ist, wir können aber nicht nachvollziehen, wie
-			viele Besuche auf ein identisches Endgerät entfallen. Die dadurch
-			gewonnenen Informationen dienen der Verbesserung und bedarfsgerechten
-			Gestaltung sowie Resonanzmessung unseres Online-Auftritts.
-		</p>
-
-		<p>
-			<b>3.3
-				Rechtsgrundlage</b>
-		</p>
-		<p>
-			In
-			der Variante von Matomo ohne Cookies und ohne Fingerprinting,
-			lediglich mit einer kurzlebigen config-ID, ist die Verarbeitung zur
-			Wahrung der überwiegenden berechtigten Interessen des
-			Verantwortlichen erforderlich (Art. 6 Abs. 1 lit. f DSGVO). Unser
-			berechtigtes Interesse liegt in dem in Ziffer D.3.2 benannten Zweck.
-		</p>
-
-		<p>
-			<b>3.4
-				Speicherdauer und Widerspruchsrecht</b>
-		</p>
-		<p>
-			Sie
-			können der Datenverarbeitung durch Matomo zudem jederzeit
-			widersprechen, indem Sie nachfolgend
-			den Haken entfernen und so das Opt-out-Plug-in aktivieren<!-- 
-Bitte einbinden -->.
-
-		</p>
-
-		<p>
-			Die
-			mit Matomo verarbeiteten und gespeicherten Analysedaten werden von
-			uns im Übrigen nach zwei Jahren automatisch gelöscht.
-		</p>
-
-
-		<p>
-			<b>Sicherheitsmaßnahmen
-			</b>
-		</p>
-
-		<p>
-			<b>Sicherheitsmaßnahmen</b>
-		</p>
-		<p>
-			Um
-			Ihre persönlichen Daten vor fremdem Zugriff zu schützen, haben wir
-			unsere Webseite mit einem SSL- bzw. TLS-Zertifikat versehen. SSL
-			steht für „Secure-Sockets-Layer“ und TLS für „Transport Layer
-			Security“ und verschlüsselt die Kommunikation von Daten zwischen
-			einer Webseite und dem Endgerät des Nutzers. Sie erkennen die aktive
-			SSL- bzw. TLS-Verschlüsselung an einem kleinen Schloss-Logo, das
-			ganz links in der Adresszeile des Browsers angezeigt wird.</p>
-
-		<p>
-			<b>Ihre
-				Rechte </b>
-		</p>
-
-		<p>
-			Im
-			Hinblick auf die oben beschriebene Datenverarbeitung durch unseren
-			Verein stehen Ihnen die folgenden Betroffenenrechte zu:</p>
-
-
-
-		<h3>
-			Auskunft
-			(Art. 15 DSGVO)</h3>
-
-
-
-		<p>Sie
-			haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob
-			wir Sie betreffende personenbezogene Daten verarbeiten. Ist dies der
-			Fall, so haben sie unter den in Art. 15 DSGVO genannten
-			Voraussetzungen ein Recht auf Auskunft über diese personenbezogenen
-			Daten und auf die in Art. 15 DSGVO im einzelnen aufgeführten
-			Informationen.</p>
-		<p><br>
-		</p>
-
-
-
-		<h3>
-			Berichtigung
-			(Art. 16 DSGVO)</h3>
-
-
-
-		<p>Sie
-			haben das Recht, von uns unverzüglich die Berichtigung Sie
-			betreffender unrichtiger personenbezogener Daten und ggf. die
-			Vervollständigung unvollständiger personenbezogener Daten zu
-			verlangen.</p>
-
-
-
-		<h3>
-			Löschung
-			(Art. 17 DSGVO)</h3>
-
-
-
-		<p>Sie
-			haben das Recht, von uns zu verlangen, dass Sie betreffende
-			personenbezogene Daten unverzüglich gelöscht werden, sofern einer
-			der in Art. 17 DSGVO im Einzelnen aufgeführten Gründe zutrifft, z.
-			B. wenn Ihre Daten für die von uns verfolgten Zwecke nicht mehr
-			benötigt werden.</p>
-
-
-
-		<h3>
-			Einschränkung
-			der Datenverarbeitung (Art. 18 DSGVO)</h3>
-
-
-
-		<p>Sie
-			haben das Recht, von uns die Einschränkung der Verarbeitung zu
-			verlangen, wenn eine der in Art. 18 DSGVO aufgeführten
-			Voraussetzungen gegeben ist, z. B. wenn Sie die Richtigkeit Ihrer
-			personenbezogenen Daten bestreiten, wird die Datenverarbeitung für
-			die Dauer eingeschränkt, die uns die Überprüfung der Richtigkeit
-			Ihrer Daten ermöglicht.</p>
-
-
-
-		<h3>
-			Datenübertragbarkeit
-			(Art. 20 DSGVO)</h3>
-
-
-
-		<p>Sie
-			haben das Recht, unter den in Art. 20 DSGVO aufgeführten
-			Voraussetzungen, die Herausgabe der Sie betreffenden Daten in einem
-			strukturierten, gängigen und maschinenlesbaren Format zu verlangen.</p>
-
-
-
-		<h3>
-			Widerruf
-			von Einwilligungen (Art. 7 Abs. 3 DSGVO)</h3>
-
-
-
-		<p>Sie
-			haben das Recht, bei einer Verarbeitung, die auf einer Einwilligung
-			beruht, Ihre Einwilligung jederzeit zu widerrufen. Der Widerruf gilt
-			ab dem Zeitpunkt seiner Geltendmachung. Er wirkt mit anderen Worten
-			für die Zukunft. Die Verarbeitung wird durch den Widerruf der
-			Einwilligung also nicht rückwirkend rechtswidrig.</p>
-
-
-
-		<h3>
-			Beschwerde
-			(Art. 77 DSGVO)</h3>
-
-
-
-		<p>Wenn
-			Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden
-			personenbezogenen Daten gegen die DSGVO verstößt, haben Sie das
-			Recht auf Beschwerde bei einer Aufsichtsbehörde. Sie können dieses
-			Recht bei einer Aufsichtsbehörde in dem EU-Mitgliedstaat Ihres
-			Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen
-			Verstoßes geltend machen.</p>
-
-
-
-		<h3>
-			Verbot
-			automatisierter Entscheidungen/Profiling (Art. 22 DSGVO)</h3>
-
-
-
-		<p>Entscheidungen,
-			die für Sie rechtliche Folge nach sich ziehen oder Sie erheblich
-			beeinträchtigen, dürfen nicht ausschließlich auf eine
-			automatisierte Verarbeitung personenbezogener Daten –
-			einschließlich eines Profiling – gestützt werden. Wir teilen
-			Ihnen mit, dass wir im Hinblick auf Ihre personenbezogenen Daten
-			keine automatisierte Entscheidungsfindung einschließlich Profiling
-			einsetzen.</p>
-
-
-
-		<h3>
-			Widerspruchsrecht
-			(Art. 21 DSGVO)</h3>
-
-
-
-		<p>
-			Wenn
-			wir personenbezogene Daten von Ihnen auf Grundlage von Art. 6 Abs. 1
-			lit. f DSGVO (zur Wahrung überwiegender berechtigten Interessen)
-			verarbeiten, haben Sie das Recht, unter den in Art. 21 DSGVO
-			aufgeführten Voraussetzungen dagegen Widerspruch einzulegen. Dies
-			gilt jedoch nur, soweit Gründe vorliegen, die sich aus Ihrer
-			besonderen Situation ergeben. Nach einem Widerspruch verarbeiten wir
-			Ihre personenbezogenen Daten nicht mehr, es sei denn, wir können
-			zwingende schutzwürdige Gründe für die Verarbeitung nachweisen,
-			die Ihre Interessen, Rechte und Freiheiten überwiegen. Wir müssen
-			die Verarbeitung ebenfalls nicht einstellen, wenn sie der
-			Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen
-			dient. In jedem Fall – auch unabhängig von einer besonderen
-			Situation – haben Sie das Recht, jederzeit Widerspruch gegen die
-			Verarbeitung Ihrer personenbezogenen Daten für Direktwerbung
-			einzulegen.</p>
-		<p>
-			<i><b>Stand:
-					Februar 2026</b></i>
-		</p>
-                    </div>
-
-                    <p class="mb-0 mt-4 d-block d-lg-none">
-                        <small>
-                            {% t left.about_bottom %}
-                        </small>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="row h-100">
+		<!-- Left side -->
+		<div id="left-side" class="col-md-12 col-lg-6 background-primary pattern">
+			<div class="container d-flex flex-column flex-fill h-100 py-5 px-2 px-lg-5">
+				<div class="row mb-5">
+					<div class="col-12">
+						<div class="navbar navbar-expand-xl justify-content-between align-items-center">
+							<div>
+								<a href="{{ site.baseurl }}/">
+									<img src="{{ site.baseurl_root }}/assets/images/wahlbrief.svg"
+										alt="FragDenStaat logo" width="200px">
+								</a>
+							</div>
+
+							<div class="d-flex d-lg-none align-items-center justify-content-between">
+								<div class="dropdown">
+									<button class="dropdown-toggle top-item" type="button" id="dropdownMenu3"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<i class="fas fa-globe me-1"></i>
+										{% for lang in site.languages %}
+										{% assign lang_short = site.data[lang].l10n.lang_short %}
+										{% if lang == site.lang %}
+										{{ lang_short }}
+										{% endif %}
+										{% endfor %}
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+										{% for lang in site.languages %}
+										{% assign lang_name = site.data[lang].l10n.lang_name %}
+										{% if lang == site.default_lang %}
+										<li><a class="dropdown-item" href="{{ site.baseurl_root }}{{ page.url }}">{{
+												lang_name }}</a></li>
+										{% else %}
+										<li><a class="dropdown-item"
+												href="{{ site.baseurl_root }}/{{ lang }}{{ page.url }}">{{ lang_name
+												}}</a></li>
+										{% endif %}
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+
+							<div class="d-lg-block d-none">
+								<div class="dropdown">
+									<button class="dropdown-toggle" type="button" id="dropdownMenu"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<i class="fas fa-globe me-1"></i>
+										{% for lang in site.languages %}
+										{% assign lang_name = site.data[lang].l10n.lang_name %}
+										{% if lang == site.lang %}
+										{{ lang_name }}
+										{% endif %}
+										{% endfor %}
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+										{% for lang in site.languages %}
+										{% assign lang_name = site.data[lang].l10n.lang_name %}
+										{% if lang == site.default_lang %}
+										<li><a class="dropdown-item" href="{{ site.baseurl_root }}{{ page.url }}">{{
+												lang_name }}</a></li>
+										{% else %}
+										<li><a class="dropdown-item"
+												href="{{ site.baseurl_root }}/{{ lang }}{{ page.url }}">{{ lang_name
+												}}</a></li>
+										{% endif %}
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+
+							<div class="d-lg-none">
+								<button class="navbar-toggler" onclick="openNav()"><img
+										src="{{ site.baseurl_root }}/assets/images/burger.svg"></button>
+								{% include nav-mobile.html %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-lg-8">
+						<h1>{% t terms.left.title %}</h1>
+						<p class="subtitle">{% t terms.left.subtitle %}</p>
+					</div>
+				</div>
+
+				<div class="d-block d-lg-none mt-5 scrollIndicator">
+					<div class="container">
+						<div class="text-center">
+							<button onclick="window.scrollTo(0,document.body.scrollHeight);"><i
+									class="fas fa-2x fa-chevron-down"></i></button>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mt-auto d-none d-lg-block">
+					<div class="col-12">
+						{% include nav.html %}
+						{% include footer.html %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Right side -->
+		<div class="col-md-12 col-lg-6">
+			<div class="container d-flex flex-column h-100 py-5 px-2 px-lg-4">
+				<div class="row h-100 d-flex justify-content-between">
+					<div class="col-12">
+						<h2 class="mb-3">{% t terms.right.title %}</h2>
+
+						<h1 id="datenschutzbestimmungen-wahlbrief-de-http-wahlbrief-de-">Datenschutzbestimmungen <a
+								href="http://wahlbrief.de">wahlbrief.de</a></h1>
+						<h2 id="einleitung-und-begriffe">Einleitung und Begriffe</h2>
+						<h3 id="1-allgemein">1. Allgemein</h3>
+						<p>Mit dem Betrieb der „Wahlbrief“-Webseite mit der URL <a
+								href="https://wahlbrief.de">https://wahlbrief.de</a> (im Folgenden „Webseite“ genannt)
+							verarbeiten wir personenbezogene Daten. Diese werden von uns vertraulich behandelt und nach
+							den geltenden Gesetzen – insbesondere der <a
+								href="https://de.wikipedia.org/wiki/Datenschutz-Grundverordnung">Datenschutzgrundverordnung</a>
+							(DSGVO), dem <a
+								href="https://www.gesetze-im-internet.de/bdsg_2018/">Bundesdatenschutzgesetz</a> (BDSG)
+							und dem <a href="https://www.gesetze-im-internet.de/ttdsg/">Gesetz über den Datenschutz und
+								den Schutz der Privatsphäre in der Telekommunikation und bei digitalen Diensten</a>
+							(TDDDG) – verarbeitet. Mit diesen Datenschutzbestimmungen wollen wir Sie darüber
+							informieren, welche personenbezogenen Daten wir von Ihnen erheben, zu welchen Zwecken und
+							auf welcher Rechtsgrundlage wir sie verwenden und gegebenenfalls wem wir sie offenlegen.
+							Darüber hinaus werden wir Ihnen erklären, welche Rechte Ihnen zur Wahrung und Durchsetzung
+							Ihres Datenschutzes zustehen.</p>
+						<h3 id="2-begriffe">2. Begriffe</h3>
+						<p>Unsere Datenschutzbestimmungen enthalten Fachbegriffe, die in der DSGVO und dem BDSG stehen.
+							Zu Ihrem besseren Verständnis wollen wir diese Begriffe in einfachen Worten vorab erklären:
+						</p>
+						<h4>2.1 Personenbezogene Daten</h4>
+						<p>„Personenbezogene Daten“ sind alle Informationen, die sich auf eine identifizierte oder
+							identifizierbare Person beziehen (<a
+								href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02016R0679-20160504#id-10c28e5a-6d3f-4086-93e7-748c270d368b">Art.
+								4 Nr. 1 DSGVO</a>). Angaben einer identifizierten Person können z. B. der Name oder die
+							E-Mail-Adresse sein. Personenbezogen sind aber auch Daten, bei denen die Identität nicht
+							unmittelbar ersichtlich ist, sich aber ermitteln lässt, indem man eigene oder fremde
+							Informationen kombiniert und so erfährt um wen es sich handelt. Eine Person wird z. B. über
+							die Angabe Ihrer Anschrift oder Bankverbindung, Ihres Geburtsdatums oder Benutzernamens,
+							Ihrer IP-Adressen und/oder Standortdaten identifizierbar. Relevant sind hier alle
+							Informationen, die in irgendeiner Weise einen Rückschluss auf eine Person zulassen.</p>
+						<h4>2.2 Verarbeitung</h4>
+						<p>Unter einer „Verarbeitung“ versteht <a
+								href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02016R0679-20160504#id-10c28e5a-6d3f-4086-93e7-748c270d368b">Art.
+								4 Nr. 2 DSGVO</a> jeden Vorgang im Zusammenhang mit personenbezogenen Daten. Dies
+							betrifft insbesondere das Erheben, das Erfassen, die Organisation, das Ordnen, die
+							Speicherung, die Anpassung oder Veränderung, das Auslesen, das Abfragen, die Verwendung, die
+							Offenlegung, Übermittlung, Verbreitung oder eine andere Form der Bereitstellung, den
+							Abgleich oder die Verknüpfung, die Einschränkung, das Löschen oder die Vernichtung von
+							personenbezogenen Daten.</p>
+						<h2 id="verantwortliche-und-datenschutzbeauftragte">Verantwortliche und Datenschutzbeauftragte
+						</h2>
+						<h3 id="3-verantwortliche">3. Verantwortliche</h3>
+						<p>Verantwortlich für die Datenverarbeitung ist:</p>
+						<p>Verein: Open Knowledge Foundation Deutschland e.V. (Projekt FragDenStaat)
+							(„wir“)<br>Gesetzlicher Vertreter: Daniel Dietrich, Kristina Klein, Felix Reda, Lea Gimpel,
+							Gabriele C. Klug, Stefan Heumann (Vorstand)<br>Anschrift: Singerstr. 109, 10179
+							Berlin<br>Fax: +49 30 978 942 30<br>E-Mail: <a
+								href="mailto:info@fragdenstaat.de">info@fragdenstaat.de</a></p>
+						<h3 id="4-datenschutzbeauftragte">4. Datenschutzbeauftragte</h3>
+						<p>Wir haben für unseren Verein eine externe Datenschutzbeauftragte bestellt. Sie erreichen sie
+							unter:<br>Name: Beata Hubrig</p>
+						<p>E-Mail: <a href="mailto:datenschutz@okfn.de">datenschutz@okfn.de</a></p>
+						<h2 id="verarbeitungsrahmen">Verarbeitungsrahmen</h2>
+						<h3 id="5-verarbeitungsrahmen-webseite-wahlbrief-de-http-wahlbrief-de-">5. Verarbeitungsrahmen:
+							Webseite <a href="http://wahlbrief.de">wahlbrief.de</a></h3>
+						<p>Im Rahmen unserer „<a href="http://wahlbrief.de">wahlbrief.de</a>“-Webseite verarbeiten wir
+							die nachfolgend im Abschnitt D. im Einzelnen aufgeführten personenbezogenen Daten von Ihnen.
+							Wir verarbeiten nur Daten von Ihnen, die Sie aktiv auf unserer Webseite angeben oder die Sie
+							bei der Nutzung unseres Angebotes automatisch zur Verfügung stellen.</p>
+						<p>Sofern wir uns bei der Verarbeitung Ihrer personenbezogenen Daten der Hilfe externer
+							Dienstleister bedienen, erfolgt dies im Rahmen einer sogenannten Auftragsverarbeitung, bei
+							der wir als Auftraggeber unseren Auftragnehmern gegenüber weisungsbefugt sind.</p>
+						<p>Zum Betrieb unserer Webseite setzen wir für das Hosting einen externen Dienstleister ein. Wir
+							hosten unsere Webseite über den Dienst Github Pages beim externen Anbieter Github (GitHub
+							Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107 USA) auf Servern in den USA. Weitere
+							Informationen zum Datenschutz bei Github finden Sie unter: <a
+								href="https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages"><strong>https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages</strong></a>.
+							Diese Datenübermittlung in Drittstaaten erfolgt auf Grundlage der sogenannten
+							EU-Standardvertragsklauseln (SCCs) und des EU-US Data Privacy Framework (<a
+								href="https://www.dataprivacyframework.gov/"><strong>https://www.dataprivacyframework.gov/</strong></a>).
+							Github erläutert die Transfermechanismen unter <a
+								href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#international-data-transfers"><strong>https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#international-data-transfers</strong></a>
+							und <a
+								href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#data-privacy-framework-dpf"><strong>https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#data-privacy-framework-dpf</strong></a>.
+						</p>
+						<p>Eine Datenübermittlung in Drittstaaten findet durch uns im Übrigen nicht statt und ist auch
+							nicht geplant.</p>
+						<h2 id="die-verarbeitung-im-einzelnen">Die Verarbeitung im Einzelnen</h2>
+						<h3 id="6-bereitstellung-der-webseite-und-server-logfiles">6. Bereitstellung der Webseite und
+							Server-Logfiles</h3>
+						<p>Bei jedem Aufruf der Webseite erfasst unser Hosting-Anbieter Github automatisch
+							Informationen, die Ihr Browser an den Github-Server übermittelt. Diese werden auch in den
+							sogenannten Logfiles von Github gespeichert. Die Informationen umfassen IP-Adresse, die
+							Adresse der vorher besuchten Website (Referer Anfrage-Header), Datum und Uhrzeit der
+							Anfrage, Zeitzonendifferenz zur Greenwich Mean Time, Inhalt der Anforderung,
+							HTTP-Statuscode, übertragene Datenmenge, Website, von der die Anforderung kommt und
+							Informationen zu Browser und Betriebssystem. Die Informationen werden von Github zur
+							Auslieferung der Webseite, der Aufrechterhaltung des technischen Betriebs der Server und zur
+							Gewährleistung der Stabilität und Sicherheit verarbeitet. Wir haben keinerlei Zugriff auf
+							diese Server-Logfiles. Ein wie auch immer geartetes Tracking der Webseitenbesucher:innen
+							durch Github erfolgt nicht.</p>
+						<h3 id="7-generierung-eines-briefwahlantrags">7. Generierung eines Briefwahlantrags</h3>
+						<h4>7.1 Beschreibung der Verarbeitung</h4>
+						<p>Die Hauptfunktion unserer Webseite <a href="http://wahlbrief.de">wahlbrief.de</a> besteht
+							darin, Ihnen die einfache Erstellung eines Briefwahlantrags zu ermöglichen. Dafür stellen
+							wir Ihnen ein Formular zur Verfügung, in das Sie Ihre persönlichen Angaben eintragen können.
+							Dies umfasst Ihren Vornamen, Nachnamen, Ihr Geburtsdatum, Ihre Straße und Hausnummer, Ihre
+							Postleitzahl und Ihren Ort (Meldeadresse). Sofern Sie die Briefwahlunterlagen an eine von
+							Ihrer Meldeadresse abweichende Anschrift versenden lassen möchten, können Sie optional eine
+							abweichende Versandadresse angeben (Vorname, Nachname, Adresszusatz, Straße und Hausnummer,
+							Postleitzahl und Ort). Die in das Formular eingegebenen Daten werden ausschließlich dazu
+							verwendet, eine Vorlage für einen Briefwahlantrag zu erzeugen und als Vorschau auf der
+							Webseite anzuzeigen. Die Vorlage können Sie in Ihrem E-Mail-Programm öffnen. Sie versenden
+							den so generierten Antrag anschließend selbständig per E-Mail an die zuständige Behörde.
+							Eine Speicherung der in das Formular eingegebenen personenbezogenen Daten auf unseren
+							Servern findet nicht statt. Die Verarbeitung erfolgt ausschließlich lokal in Ihrem Browser.
+						</p>
+						<h4>7.2 Zweck</h4>
+						<p>Die Verarbeitung erfolgt, um Ihnen die einfache und komfortable Erstellung und Versendung
+							eines Briefwahlantrags an die zuständige Behörde zu ermöglichen. </p>
+						<h4>7.3 Rechtsgrundlage</h4>
+						<p>Die Verarbeitung ist zur Wahrung der überwiegenden berechtigten Interessen des
+							Verantwortlichen erforderlich (Art. 6 Abs. 1 lit. f DSGVO). Unser berechtigtes Interesse
+							liegt in dem in Ziffer 7.2 benannten Zweck. Da die eingegebenen Daten ausschließlich lokal
+							in Ihrem Browser verarbeitet und nicht an unsere Server übermittelt werden, ist der Eingriff
+							in Ihre Rechte und Freiheiten als gering anzusehen. </p>
+						<h4>7.4 Speicherdauer</h4>
+						<p>Eine Speicherung Ihrer in das Formular eingegebenen personenbezogenen Daten auf unseren
+							Servern findet nicht statt. Die Daten verbleiben ausschließlich lokal in Ihrem Browser und
+							werden mit dem Schließen der Webseite bzw. Ihres Browsers verworfen. </p>
+						<h4>7.5 Empfänger</h4>
+						<p>Eine Übermittlung der in das Formular eingegebenen personenbezogenen Daten an Dritte durch
+							uns findet nicht statt. Der von Ihnen generierte Briefwahlantrag wird von Ihnen selbst per
+							E-Mail an die zuständige Behörde versendet.</p>
+						<h3 id="8-e-mail-erinnerungsservice">8. E-Mail-Erinnerungsservice</h3>
+						<h4>8.1 Beschreibung der Verarbeitung</h4>
+						<p>Auf unserer Webseite <a href="http://wahlbrief.de">wahlbrief.de</a> bieten wir Ihnen die
+							Möglichkeit, einen Briefwahlantrag zu generieren. In diesem Zusammenhang können Sie einen
+							E-Mail-Erinnerungsservice abonnieren, der Sie rechtzeitig daran erinnert, Ihre
+							Briefwahlunterlagen auszufüllen und abzusenden, sowie Ihnen zukünftige Wahltermine zu
+							kommunizieren. Die Anmeldung zum Erinnerungsservice setzt die Eingabe einer E-Mail-Adresse
+							voraus. Nur wenn Sie eine E-Mail-Adresse eingeben, werden Ihre E-Mail-Adresse, der amtliche
+							Regionalschlüssel der von Ihnen gewählten Gemeinde, Ihre Postleitzahl, Ihr Ort und Ihr
+							Bundesland von uns gespeichert. Die Anmeldung erfolgt im sogenannten
+							Double-Opt-In-Verfahren. Das bedeutet, dass Sie nach der Eintragung eine E-Mail von uns
+							erhalten, in der wir Sie um Bestätigung bitten, dass Sie den Erinnerungsservice tatsächlich
+							abonnieren möchten. Erst nach dem Anklicken des in dieser E-Mail enthaltenen
+							Bestätigungslinks wird Ihre Eintragung aktiviert und Sie erhalten von uns
+							E-Mail-Erinnerungen. Im Rahmen des Double-Opt-In-Verfahrens speichern wir bei der Anmeldung
+							und bei der Bestätigung jeweils Datum und Uhrzeit. Das Verfahren dient dem Schutz vor der
+							missbräuchlichen Eintragung fremder E-Mail-Adressen. Der Erinnerungsservice ist unabhängig
+							von einer etwaigen Anmeldung zum FragDenStaat-Newsletter (siehe Ziffer 9). Sie können den
+							Erinnerungsservice auch ohne eine Anmeldung zum Newsletter nutzen. </p>
+						<h4>8.2 Zweck</h4>
+						<p>Die Verarbeitung erfolgt, um Sie per E-Mail rechtzeitig an das Ausfüllen und Absenden Ihrer
+							Briefwahlunterlagen zu erinnern. Die Erhebung von Postleitzahl, Ort, Bundesland und
+							amtlichem Regionalschlüssel dient der Zuordnung des Erinnerungsservices zu den jeweils für
+							Ihren Wohnort relevanten Wahlterminen, um Ihnen passgenaue Erinnerungen für zukünftige
+							Wahlen in Ihrer Gemeinde zusenden zu können.. Die Erhebung und Speicherung von Datum und
+							Uhrzeit im Rahmen des Double-Opt-In-Verfahrens dient der Dokumentation der erteilten
+							Einwilligung und dem Schutz vor der missbräuchlichen Eintragung von E-Mail-Adressen.</p>
+						<h4>8.3 Rechtsgrundlage</h4>
+						<p>Die Verarbeitung erfolgt auf Grundlage einer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
+							Ihre Einwilligung ist freiwillig. Die Erhebung und Speicherung von Datum und Uhrzeit bei der
+							Anmeldung und Bestätigung ist zur Wahrung der überwiegenden berechtigten Interessen des
+							Verantwortlichen erforderlich (Art. 6 Abs. 1 lit. f DSGVO). Unser berechtigtes Interesse
+							liegt in dem in Ziffer 8.2 benannten Zweck. </p>
+						<h4>8.4 Speicherdauer und Widerruf der Einwilligung</h4>
+						<p>Sollten Sie Ihre Anmeldung zum Erinnerungsservice nicht innerhalb von 30 Tagen nach Erhalt
+							der Bestätigungs-E-Mail bestätigen, werden Ihre Daten automatisch gelöscht. Im Übrigen
+							verarbeiten wir Ihre personenbezogenen Daten für die Dauer des Abonnements des
+							Erinnerungsservices. Sie können den Erinnerungsservice jederzeit durch Widerruf Ihrer
+							Einwilligung beenden. Dafür genügt eine einfache Erklärung per E-Mail an <a
+								href="mailto:info@fragdenstaat.de">info@fragdenstaat.de</a>. Wenn Sie sich vom
+							Erinnerungsservice austragen, werden Ihre E-Mail-Adresse und die weiteren im Rahmen der
+							Anmeldung erhobenen Daten gelöscht. Der Widerruf Ihrer Einwilligung zum Erinnerungsservice
+							lässt ein etwaiges Abonnement des FragDenStaat-Newsletters (siehe Ziffer 8) unberührt. </p>
+						<h4>8.5 Empfänger</h4>
+						<p>Die im Rahmen des Erinnerungsservices erhobenen Daten werden auf unseren eigenen Servern
+							verarbeitet. Eine Weitergabe an Dritte erfolgt nicht.</p>
+						<h3 id="9-fragdenstaat-newsletter">9. FragDenStaat-Newsletter</h3>
+						<h4>9.1 Beschreibung der Verarbeitung</h4>
+						<p>Auf unserer Webseite <a href="http://wahlbrief.de">wahlbrief.de</a> haben Sie zusätzlich und
+							unabhängig vom E-Mail-Erinnerungsservice (siehe Ziffer 8) die Möglichkeit, den
+							FragDenStaat-Newsletter zu abonnieren. Mit dem FragDenStaat-Newsletter informieren wir Sie
+							über das Portal FragDenStaat, über unsere Arbeit, unsere Recherchen und Klagen. Die
+							Anmeldung zum Newsletter ist freiwillig und nicht an die Nutzung des Erinnerungsservices
+							gekoppelt. Für die Newsletter-Anmeldung ist lediglich die Angabe Ihrer E-Mail-Adresse
+							erforderlich. Alle weiteren Angaben (wie z. B. Ihr Vorname und Nachname) sind freiwillig und
+							dienen allein der Personalisierung der E-Mails. Zur Durchführung und Verifizierung von
+							Newsletter-Anmeldungen setzen wir das sogenannte Double-Opt-In-Verfahren ein. Zunächst
+							tragen Sie sich auf unserer Webseite in den Newsletter ein. Sie erhalten an die von Ihnen
+							angegebene E-Mail-Adresse dann eine E-Mail von uns, mit der wir Sie um Bestätigung bitten,
+							dass Sie den Newsletter tatsächlich abonnieren möchten. Erst nach dem Anklicken des in
+							dieser E-Mail enthaltenen Bestätigungslinks werden wir Sie in unseren Newsletter-Verteiler
+							aufnehmen und Ihnen zukünftig E-Mails zusenden. Im Rahmen des Double-Opt-In-Verfahrens
+							speichern wir sowohl bei der Anmeldung als auch bei der Bestätigung Datum, Uhrzeit und eine
+							Referenz, die identifiziert, wie Sie zur Newsletter-Anmeldung gelangt sind. Mit der
+							Newsletter-Anmeldung vergeben wir intern eine Newsletter-Abo-ID. Wir werden Ihre von uns
+							intern vergebene Newsletter-Abo-ID auch im Rahmen unseres internen FragDenStaat-Dashboards
+							verarbeiten. Weitere Informationen hierzu finden Sie in unserer <a
+								href="https://fragdenstaat.de/datenschutzerklaerung/">Datenschutzerklärung</a> unter
+							Ziffer D.20. In unseren Newslettern verwenden wir ein Verfahren zur statistischen Auswertung
+							der Öffnungsraten. Hierbei wird eine transparente Bilddatei (sogenanntes
+							„Tracking-Pixel&quot;) in die versendeten E-Mails eingebettet. Dieses Bild wird von einem
+							separaten Server ohne Verwendung von Cookies geladen, wenn Sie den Newsletter in Ihrem
+							E-Mail-Programm öffnen. Jedes Tracking-Pixel enthält eine eindeutige, zufällig generierte
+							Kennung (Zahlenkombination), die dem jeweiligen Newsletter-Versand zugeordnet ist, jedoch
+							keinen direkten Bezug zu Ihrer E-Mail-Adresse oder anderen personenbezogenen Daten aufweist
+							oder herstellt. Im Zugriffslog speichern wir ausschließlich das Datum des Abrufs, die
+							aufgerufene URL mit der Zahlenkombination des Tracking-Pixels sowie den HTTP-Status. Ihre
+							IP-Adresse, Informationen über Ihren Browser oder andere technische Daten, die Rückschlüsse
+							auf Ihre Person zulassen, werden nicht erfasst und gespeichert. Durch dieses Verfahren
+							können wir die Öffnungen pro Newsletter-Aussendung ohne Personenbezug erfassen und
+							auswerten. </p>
+						<h4>9.2 Zweck</h4>
+						<p>Die Verarbeitung erfolgt, um die Newsletter-Funktion anbieten und Abonnent:innen
+							Newsletter-E-Mails zusenden zu können. Die Erhebung und Speicherung von Datum, Uhrzeit und
+							Referenz bei der Newsletter-Anmeldung dient der Dokumentation von erteilten Einwilligungen
+							und dem Schutz vor der missbräuchlichen Eintragung von E-Mail-Adressen. Die statistische
+							Erfassung der Newsletter-Öffnungsraten dient dazu, die Nutzung unserer Newsletter
+							statistisch auszuwerten und unsere Mailings zu verbessern. Die Auswertungen erfolgen
+							ausschließlich in aggregierter, nicht personenbezogener Form. </p>
+						<h4>9.3 Rechtsgrundlage</h4>
+						<p>Die Verarbeitung erfolgt auf Grundlage einer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
+							Ihre Einwilligung ist freiwillig. Die Erhebung und Speicherung von Datum, Uhrzeit und
+							Referenz bei der Newsletter-Anmeldung ist zur Wahrung der überwiegenden berechtigten
+							Interessen des Verantwortlichen erforderlich (Art. 6 Abs. 1 lit. f DSGVO). Unser
+							berechtigtes Interesse liegt in dem in Ziffer 8.2 benannten Zweck. Die statistische
+							Auswertung der Newsletter-Öffnungsraten erfolgt auf Grundlage unserer berechtigten
+							Interessen gemäß Art. 6 Abs. 1 lit. f DSGVO. Die Datenverarbeitung erfolgt in einer Weise,
+							die den Schutz Ihrer personenbezogenen Daten durch Minimierung der erfassten Daten und
+							Verzicht auf eine personenbezogene Auswertung gewährleistet. </p>
+						<h4>9.4 Speicherdauer und Widerruf der Einwilligung</h4>
+						<p>Sollten Sie Ihre Anmeldung zum Newsletter nicht innerhalb von 30 Tagen nach Erhalt der
+							entsprechenden Anmeldungs-E-Mail bestätigen, werden Ihre Daten automatisch gelöscht. Im
+							Übrigen verarbeiten wir Ihre personenbezogenen Daten für die Dauer Ihres
+							Newsletter-Abonnements. Sie können den Bezug des Newsletters jederzeit durch Widerruf Ihrer
+							Einwilligung beenden. Dafür genügt eine einfache Erklärung per E-Mail an <a
+								href="mailto:info@fragdenstaat.de">info@fragdenstaat.de</a>. Eine Abbestellung ist zudem
+							durch das Anklicken des Abbestelllinks in jeder Newsletter-E-Mail oder über das
+							Newsletter-Formular möglich. Mit dem Widerruf werden Ihnen keine Newsletter mehr zugesendet
+							und Ihre personenbezogenen Daten aus unserem aktiven Verteiler entfernt. Ihre E-Mail-Adresse
+							wird 3 Tage nach einer Abmeldung aus dem gesamten Newslettersystem gelöscht. Wir werden im
+							Fall Ihres Widerrufs mittels des Hash-Verfahrens einen Hashwert aus Ihrer Abo-ID und
+							E-Mail-Adresse bilden, um für die Dauer eines Jahres intern zu dokumentieren, dass das
+							Newsletter-Abo einmal bestand. Dieser Hashwert erlaubt uns nicht die Rekonstruktion Ihrer
+							E-Mail-Adresse. Nach Ihrer Abmeldung über den Abbestelllink oder das Newsletter-Formular
+							haben Sie die Möglichkeit, auf der Bestätigungsseite über ein Formular ein Feedback zu den
+							Gründen der Abbestellung abzugeben. Dieses Formular ist zum Schutz vor Spam für die Dauer
+							von einer Stunde nach Abbestellung mit der abbestellenden Person über deren E-Mail-Adresse
+							bzw. deren FragDenStaat-Account verknüpft. Nach Ablauf einer Stunde wird diese Verknüpfung
+							gelöscht. Die statistischen Daten zur Newsletter-Öffnung werden für einen Zeitraum von
+							maximal 12 Monaten gespeichert und anschließend gelöscht. Sie können die Datenverarbeitung
+							unterbinden, indem Sie in Ihrem E-Mail-Programm die automatische Anzeige von Bildern
+							deaktivieren, wodurch das Tracking-Pixel nicht geladen und keine Öffnung registriert wird.
+							Der Widerruf Ihrer Einwilligung zum Newsletter lässt ein etwaiges Abonnement des
+							E-Mail-Erinnerungsservices (siehe Ziffer 8) unberührt. </p>
+						<h4>9.5 Empfänger</h4>
+						<p>Die im Rahmen des FragDenStaat-Newsletters erhobenen Daten werden auf unseren eigenen Servern
+							verarbeitet. Eine Weitergabe an Dritte erfolgt nicht.</p>
+						<h3 id="10-matomo">10. Matomo</h3>
+						<h4>10.1 Beschreibung der Verarbeitung</h4>
+						<p>FragDenStaat setzt auf der „<a href="http://wahlbrief.de">wahlbrief.de</a>“-Webseite „Matomo“
+							ein, eine Webanalysesoftware der Innocraft Ltd., 150 Willis St, 6011 Wellington, New
+							Zealand. Matomo ist eine Open Source Software, die wir als Dienst selbst (und zwar nicht auf
+							Github-Servern) betreiben. Wir verwenden Matomo ohne den Einsatz von Cookies und ohne sog.
+							Fingerprinting, sondern nur auf Basis einer config-ID, die sich alle 24 Stunden ändert. Im
+							Rahmen der Webanalyse über Matomo wird Ihre IP-Adresse ausschließlich um die letzten drei
+							Stellen gekürzt erfasst, sodass eine Zuordnung nicht möglich ist (sogenanntes IP-Masking).
+							Die von Matomo erstellten Statistiken beinhalten insbesondere, wie viele Nutzer unsere
+							Website besuchen, aus welchem Land der Zugriff erfolgt, welche Unterseiten aufgerufen werden
+							und über welche Links oder Suchbegriffe Besucher auf unsere Webseite gelangen. Die erfassten
+							Informationen werden an unseren Server übertragen und allein dort gespeichert. Eine
+							Weitergabe an Dritte – insbesondere an die Innocraft Ltd. – erfolgt nicht. Wir werden die
+							anonymisierten Matomo-Analysedaten auch im Rahmen unseres internen FragDenStaat-Dashboards
+							(Ziffer D.20 der <a
+								href="https://fragdenstaat.de/datenschutzerklaerung/#-20--fragdenstaat-dashboard">FragDenStaat-Datenschutzerklärung</a>)
+							verarbeiten.</p>
+						<h4>10.2 Zweck</h4>
+						<p>Die Verarbeitung erfolgt, um die Nutzung von „<a href="http://wahlbrief.de">wahlbrief.de</a>“
+							auswerten zu können. Durch den Verzicht auf Cookies und Fingerprinting können wir zwar
+							sehen, wie häufig eine Seite aufgerufen worden ist, wir können aber nicht nachvollziehen,
+							wie viele Besuche auf ein identisches Endgerät entfallen. Die dadurch gewonnenen
+							Informationen dienen der Verbesserung und bedarfsgerechten Gestaltung sowie Resonanzmessung
+							unseres Online-Auftritts.</p>
+						<h4>10.3 Rechtsgrundlage</h4>
+						<p>In der Variante von Matomo ohne Cookies und ohne Fingerprinting, lediglich mit einer
+							kurzlebigen config-ID, ist die Verarbeitung zur Wahrung der überwiegenden berechtigten
+							Interessen des Verantwortlichen erforderlich (Art. 6 Abs. 1 lit. f DSGVO). Unser
+							berechtigtes Interesse liegt in dem in Ziffer 10.2 benannten Zweck.</p>
+						<h4>10.4 Speicherdauer und Widerspruchsrecht</h4>
+						<p>Sie können der Datenverarbeitung durch Matomo zudem jederzeit widersprechen, indem Sie
+							nachfolgend den Haken entfernen und so das Opt-out-Plug-in aktivieren.</p>
+						<p>Die mit Matomo verarbeiteten und gespeicherten Analysedaten werden von uns im Übrigen nach
+							zwei Jahren automatisch gelöscht.</p>
+						<h2 id="-sicherheitsma-nahmen-">Sicherheitsmaßnahmen</</h2>
+						<h3 id="11-sicherheitsma-nahmen">11. Sicherheitsmaßnahmen</h3>
+						<p>Um Ihre persönlichen Daten vor fremdem Zugriff zu schützen, haben wir unsere Webseite mit
+							einem SSL- bzw. TLS-Zertifikat versehen. SSL steht für „Secure-Sockets-Layer“ und TLS für
+							„Transport Layer Security“ und verschlüsselt die Kommunikation von Daten zwischen einer
+							Webseite und dem Endgerät des Nutzers. Sie erkennen die aktive SSL- bzw. TLS-Verschlüsselung
+							an einem kleinen Schloss-Logo, das ganz links in der Adresszeile des Browsers angezeigt
+							wird.</p>
+						<h2 id="-ihre-rechte-">Ihre Rechte</h2>
+						<p>Im Hinblick auf die oben beschriebene Datenverarbeitung durch unseren Verein stehen Ihnen die
+							folgenden Betroffenenrechte zu:</p>
+						<h3 id="12-auskunft-art-15-dsgvo-">12. Auskunft (Art. 15 DSGVO)</h3>
+						<p>Sie haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob wir Sie betreffende
+							personenbezogene Daten verarbeiten. Ist dies der Fall, so haben sie unter den in Art. 15
+							DSGVO genannten Voraussetzungen ein Recht auf Auskunft über diese personenbezogenen Daten
+							und auf die in Art. 15 DSGVO im einzelnen aufgeführten Informationen.</p>
+						<h3 id="13-berichtigung-art-16-dsgvo-">13. Berichtigung (Art. 16 DSGVO)</h3>
+						<p>Sie haben das Recht, von uns unverzüglich die Berichtigung Sie betreffender unrichtiger
+							personenbezogener Daten und ggf. die Vervollständigung unvollständiger personenbezogener
+							Daten zu verlangen.</p>
+						<h3 id="14-l-schung-art-17-dsgvo-">14. Löschung (Art. 17 DSGVO)</h3>
+						<p>Sie haben das Recht, von uns zu verlangen, dass Sie betreffende personenbezogene Daten
+							unverzüglich gelöscht werden, sofern einer der in Art. 17 DSGVO im Einzelnen aufgeführten
+							Gründe zutrifft, z. B. wenn Ihre Daten für die von uns verfolgten Zwecke nicht mehr benötigt
+							werden.</p>
+						<h3 id="15-einschr-nkung-der-datenverarbeitung-art-18-dsgvo-">15. Einschränkung der
+							Datenverarbeitung (Art. 18 DSGVO)</h3>
+						<p>Sie haben das Recht, von uns die Einschränkung der Verarbeitung zu verlangen, wenn eine der
+							in Art. 18 DSGVO aufgeführten Voraussetzungen gegeben ist, z. B. wenn Sie die Richtigkeit
+							Ihrer personenbezogenen Daten bestreiten, wird die Datenverarbeitung für die Dauer
+							eingeschränkt, die uns die Überprüfung der Richtigkeit Ihrer Daten ermöglicht.</p>
+						<h3 id="16-daten-bertragbarkeit-art-20-dsgvo-">16. Datenübertragbarkeit (Art. 20 DSGVO)</h3>
+						<p>Sie haben das Recht, unter den in Art. 20 DSGVO aufgeführten Voraussetzungen, die Herausgabe
+							der Sie betreffenden Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu
+							verlangen.</p>
+						<h3 id="17-widerruf-von-einwilligungen-art-7-abs-3-dsgvo-">17. Widerruf von Einwilligungen (Art.
+							7 Abs. 3 DSGVO)</h3>
+						<p>Sie haben das Recht, bei einer Verarbeitung, die auf einer Einwilligung beruht, Ihre
+							Einwilligung jederzeit zu widerrufen. Der Widerruf gilt ab dem Zeitpunkt seiner
+							Geltendmachung. Er wirkt mit anderen Worten für die Zukunft. Die Verarbeitung wird durch den
+							Widerruf der Einwilligung also nicht rückwirkend rechtswidrig.</p>
+						<h3 id="18-beschwerde-art-77-dsgvo-">18. Beschwerde (Art. 77 DSGVO)</h3>
+						<p>Wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten
+							gegen die DSGVO verstößt, haben Sie das Recht auf Beschwerde bei einer Aufsichtsbehörde. Sie
+							können dieses Recht bei einer Aufsichtsbehörde in dem EU-Mitgliedstaat Ihres
+							Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes geltend
+							machen.</p>
+						<h3 id="19-verbot-automatisierter-entscheidungen-profiling-art-22-dsgvo-">19. Verbot
+							automatisierter Entscheidungen/Profiling (Art. 22 DSGVO)</h3>
+						<p>Entscheidungen, die für Sie rechtliche Folge nach sich ziehen oder Sie erheblich
+							beeinträchtigen, dürfen nicht ausschließlich auf eine automatisierte Verarbeitung
+							personenbezogener Daten – einschließlich eines Profiling – gestützt werden. Wir teilen Ihnen
+							mit, dass wir im Hinblick auf Ihre personenbezogenen Daten keine automatisierte
+							Entscheidungsfindung einschließlich Profiling einsetzen.</p>
+						<h3 id="20-widerspruchsrecht-art-21-dsgvo-">20. Widerspruchsrecht (Art. 21 DSGVO)</h3>
+						<p>Wenn wir personenbezogene Daten von Ihnen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (zur
+							Wahrung überwiegender berechtigten Interessen) verarbeiten, haben Sie das Recht, unter den
+							in Art. 21 DSGVO aufgeführten Voraussetzungen dagegen Widerspruch einzulegen. Dies gilt
+							jedoch nur, soweit Gründe vorliegen, die sich aus Ihrer besonderen Situation ergeben. Nach
+							einem Widerspruch verarbeiten wir Ihre personenbezogenen Daten nicht mehr, es sei denn, wir
+							können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen,
+							Rechte und Freiheiten überwiegen. Wir müssen die Verarbeitung ebenfalls nicht einstellen,
+							wenn sie der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen dient. In jedem
+							Fall – auch unabhängig von einer besonderen Situation – haben Sie das Recht, jederzeit
+							Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten für Direktwerbung
+							einzulegen.</p>
+						<p><strong><em>Stand: Februar 2026</em></h4>
+					</div>
+
+					<p class="mb-0 mt-4 d-block d-lg-none">
+						<small>
+							{% t left.about_bottom %}
+						</small>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
