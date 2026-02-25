@@ -893,7 +893,7 @@ function sendEmailRequest() {
   const userData = new URLSearchParams({
     ars: selectedPlace.ars,
     state: selectedPlace.state,
-    postcode: selectedPlace.ZIP,
+    postcode: selectedPlace.PLZ,
     place: selectedPlace.ORT,
     newsletter: wantsNewsletter ? "1" : "",
   })
