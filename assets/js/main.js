@@ -598,14 +598,20 @@ function is_valid_datalist_value(inputValue, cityValue) {
       document.getElementById("election-hint-none").style.display = "block"
     } else {
       const MIN_DAYS = 6
+      const MIN_SHIPPING_DAYS = 3
       const day = 1000 * 60 * 60 * 24
       const todayDate = new Date()
       const today = todayDate.getTime()
       const electionTime = selectedElection.date.getTime()
-      const shippingDateMin = Math.max(today + (5 * day), electionTime - (30 * day))
-      const shippingDateMax = Math.max(Math.max(shippingDateMin, today + (21 * day)), electionTime - (MIN_DAYS * day))
+      const shippingDateMin = Math.max(today + (3 * day), electionTime - (30 * day))
+      const shippingDateMax = Math.max(shippingDateMin, Math.min(today + (21 * day), electionTime - (MIN_SHIPPING_DAYS * day)))
       const daysLeft = Math.floor((electionTime - today) / day)
-      let arrival = `${formatDate(shippingDateMin)} – ${formatDate(shippingDateMax)}`
+      let arrival
+      if (shippingDateMin === shippingDateMax) {
+        arrival = `${formatDate(shippingDateMin)}`
+      } else {
+        arrival = `${formatDate(shippingDateMin)} – ${formatDate(shippingDateMax)}`
+      }
       document.getElementById("arrival-date").innerText = arrival
       if (daysLeft < MIN_DAYS) {
         document.getElementById("election-hint-late").style.display = "block"
