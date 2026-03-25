@@ -747,3 +747,12 @@ a.donate {
     background: linear-gradient(0deg, #f1f5f9, #f1f5f9);
   }
 }
+
+.logos {
+  display: flex;
+  gap: 2rem;
+}
+
+.logos > * {
+  display: flex;
+}
