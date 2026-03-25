@@ -2,30 +2,32 @@
     <div class="container-fluid pt-5 px-2 px-lg-4">
         <div class="container">
             <div class="d-flex justify-content-between">
-                <div class="dropdown">
-                    <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="fas fa-globe me-1"></i>
-                        {% for lang in site.languages %}
-                        {% assign lang_name = site.data[lang].l10n.lang_name %}
-                        {% if lang == site.lang %}
-                        {{ lang_name }}
-                        {% endif %}
-                        {% endfor %}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        {% for lang in site.languages %}
-                        {% assign lang_name = site.data[lang].l10n.lang_name %}
-                        {% if lang == site.default_lang %}
-                        <li><a class="dropdown-item" href="{{ site.base_url_root }}{{ page.url | replace:'index.html','' }}">{{ lang_name }}</a>
-                        </li>
-                        {% else %}
-                        <li><a class="dropdown-item" href="{{ site.baseurl_root }}/{{ lang }}{{ page.url | replace:'index.html','' }}">{{
-                                lang_name }}</a></li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
+                {% if page.disable_translations != true %}
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i>
+                            {% for lang in site.languages %}
+                            {% assign lang_name = site.data[lang].l10n.lang_name %}
+                            {% if lang == site.lang %}
+                            {{ lang_name }}
+                            {% endif %}
+                            {% endfor %}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            {% for lang in site.languages %}
+                            {% assign lang_name = site.data[lang].l10n.lang_name %}
+                            {% if lang == site.default_lang %}
+                            <li><a class="dropdown-item" href="{{ site.base_url_root }}{{ page.url | replace:'index.html','' }}">{{ lang_name }}</a>
+                            </li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{{ site.baseurl_root }}/{{ lang }}{{ page.url | replace:'index.html','' }}">{{
+                                    lang_name }}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
                 <button class="closebtn" onclick="closeNav()">{% t nav.close %}<span class="ms-2">X</span></button>
             </div>
         </div>
