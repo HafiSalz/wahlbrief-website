@@ -9,7 +9,9 @@
 
             {% include app/address-mobile.html %}
 
-            {% include {{ page.app_outro }} %}
+            <div id="outro" class="col-12 outro mb-5">
+                {% include {{ page.app_outro }} %}
+            </div>
 
             {% include app/preview-mobile.html %}
 

@@ -39,12 +39,8 @@
                 </button>
             </div>
         </div>
-
-        {% include app/step-3-outro.html %}
-        <p class="mb-0 mt-4 d-block d-lg-none">
-            <small>
-                {% t left.about_bottom %}
-            </small>
-        </p>
+        <div id="outro-bottom" class="col-12 col-xl-8 my-4 p-4 outro">
+            {% include {{ page.app_outro }} %}
+        </div>
     </div>
 </div>
