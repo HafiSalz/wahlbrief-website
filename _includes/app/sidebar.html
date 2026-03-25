@@ -1,0 +1,33 @@
+<div id="left-side" class="col-md-12 col-lg-6 background-primary pattern">
+    <div class="container d-flex flex-column h-100 py-5 px-2 px-lg-5 overflow-auto">
+        {% include navbar.html %}
+        <div class="row">
+
+            {% include {{ page.app_intro }} %}
+
+            {% include app/bigletter.html %}
+
+            {% include app/address-mobile.html %}
+
+            {% include {{ page.app_outro }} %}
+
+            {% include app/preview-mobile.html %}
+
+            <div class="d-block d-lg-none mt-5 scrollIndicator">
+                <div class="container">
+                    <div class="text-center">
+                        <a href="#right-side" alt="Scroll down"><i class="fas fa-2x fa-chevron-down"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-auto d-none d-lg-block">
+            <div class="col-12">
+                {% include nav.html %}
+                {% include footer.html %}
+            </div>
+        </div>
+    </div>
+</div>

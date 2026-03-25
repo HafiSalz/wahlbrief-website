@@ -1,0 +1,26 @@
+<div class="tab-pane fade" id="step-2" role="tabpanel" aria-labelledby="step-2-tab">
+    <div class="col-12">
+        <div id="address-desktop">
+            <button class="btn back-small mb-4 d-none d-lg-block"
+                onclick="backtofirstpage();">{% t right.back %}</button>
+            <h4 class="fw-bold">2/3</h4>
+            <h2>{% t right.residence %}</h2>
+            <p>{% t right.optional %}</p>
+            <div class="background-gray-100 p-4">
+                <h4 id="munname" class="fw-bold mb-0"></h4>
+                <p id="munemail" class="mb-0 me-1 d-inline-block"></p>
+                <button class="btn copy p-0 d-inline-block" data-bs-placement="top"
+                    data-bs-toggle="tooltip" title="{% t right.message.copied %}"
+                    data-clipboard-target="#munemail">
+                    <i class="far fa-copy"></i>
+                </button>
+            </div>
+        </div>
+        {% include app/step-2-form.html %}
+        <p class="mb-0 mt-4 d-block d-lg-none">
+            <small>
+                {% t left.about_bottom %}
+            </small>
+        </p>
+    </div>
+</div>

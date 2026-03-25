@@ -1,0 +1,70 @@
+<div id="final-letter" class="final-letter py-3 px-4">
+
+    <p id="instructions" aria-hidden="true">
+        {% t right.instructions.title %}<br /><br />
+        <span>{% t right.instructions.first %} <span
+                id="instructionemail"></span></span><br />
+        <span>{% t right.instructions.second %} {% t right.subject %}</span><br />
+        <span>{% t right.instructions.third %}</span><br /><br />
+        -----------
+    </p>
+
+    <div id="letter-content">
+
+        <p>{% t right.letter.title %}</p>
+
+        <p class="mb-0">
+            {% t right.letter.name %}: <span class="fw-bold"
+                id="final-name"></span><br />
+            {% t right.letter.surname %}: <span class="fw-bold"
+                id="final-surname"></span><br />
+
+            {% t right.letter.birthday %}: <span class="fw-bold"
+                id="final-birthdate"></span><span class="fw-bold"
+                id="final-birthmonth"></span><span class="fw-bold"
+                id="final-birthyear"></span><br />
+            {% t right.letter.address %}:<br />
+            <span class="fw-bold" id="final-id-street"></span><br data-br="street"
+                style="display: none;" />
+            <span class="fw-bold" id="final-id-zip"></span>
+            <span class="fw-bold" id="final-id-city"></span><br data-br="zip"
+                style="display: none;" /><br />
+        </p>
+
+        <p id="finalogaddress">{% t right.letter.sendtomine %}</p>
+
+        <p class="mb-0" id="finalnewaddress">{% t right.letter.sendalternative
+            %}<br />
+
+            <span class="fw-bold" id="final-newname"></span>
+            <span class="fw-bold" id="final-newsurname"></span><br data-br="newsurname"
+                style="display: none;" />
+            <span class="fw-bold" id="final-address"></span><br data-br="address"
+                style="display: none;" />
+            <span class="fw-bold" id="final-newstreet"></span><br data-br="street"
+                style="display: none;" />
+            <span class="fw-bold" id="final-newzip"></span>
+            <span class="fw-bold" id="final-newcity"></span><br data-br="newzip"
+                style="display: none;" /><br />
+            <span class="fw-bold ms-2" id="final-street"></span>
+            <span class="fw-bold ms-2" id="final-zip"></span>
+            <span class="fw-bold ms-2" id="final-city"></span>
+        </p>
+
+        <p class="mb-0">{% t right.letter.regards %}<br />
+            <span class="fw-bold me-1" id="final-id-name"></span>
+            <span class="fw-bold" id="final-id-surname"></span>
+            <span id="final-id-street"></span>
+            <span id="final-id-zip"></span>
+            <span id="final-id-city"></span>
+            <span id="final-id-newname"></span>
+            <span id="final-id-newsurname"></span>
+            <span id="final-id-address"></span>
+            <span id="final-id-newstreet"></span>
+            <span id="final-id-newzip"></span>
+            <span id="final-id-newcity"></span>
+        </p>
+
+    </div>
+
+</div>
