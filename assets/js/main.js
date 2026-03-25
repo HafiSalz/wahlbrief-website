@@ -150,6 +150,15 @@ const elections = [
   date: new Date(e.date)
 }))
 
+let pageData = null
+const pageDataJson = document.getElementById('page-data')
+if (pageDataJson) {
+  pageData = JSON.parse(pageDataJson.textContent);
+  if (pageData.election) {
+    pageData.election.date = new Date(pageData.election.date)
+  }
+}
+
 
 // --- DOM Elements ---
 
@@ -593,7 +602,12 @@ function is_valid_datalist_value(inputValue, cityValue) {
 
     // Hide all
     document.querySelectorAll("#election-hints .election-hint").forEach((el) => {el.style.display = "none"})
-    selectedElection = elections.filter(e => e.state === data.state)[0]
+    if (pageData !== null) {
+      selectedElection = pageData.election
+    } else {
+      selectedElection = elections.filter(e => e.state === data.state)[0]
+    }
+
     if (selectedElection == undefined) {
       document.getElementById("election-hint-none").style.display = "block"
     } else {
@@ -725,6 +739,12 @@ elements.searchInput?.addEventListener("keyup", (e) => {
       return div;
     });
 
+    if (pageData.limitArs && matchArray.length <= 0) {
+        elements.suggestions.innerHTML =
+          "<div class='error'><i class='fas fa-times-circle me-2'></i><span>" + getTranslation("right.zipNotFound") + "</span></div>";
+      return;
+    }
+
     if (matchArray.length <= 0) {
         elements.suggestions.innerHTML =
           "<div class='error'><i class='fas fa-times-circle me-2'></i><span>" + getTranslation("right.invalidZipcode") + "</span></div>";
@@ -786,9 +806,12 @@ if (elements.copier) {
 })();
 
 function findMatches(keyword, zips) {
-  return zips.filter((place) =>
-    place.PLZ.toLowerCase().startsWith(keyword.toLowerCase())
-  );
+  return zips.filter((place) => {
+    if (pageData.limitArs && !pageData.limitArs.includes(place.ars)) {
+      return false
+    }
+    return place.PLZ.toLowerCase().startsWith(keyword.toLowerCase())
+  });
 }
 
 // --- Initial Setup ---

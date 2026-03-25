@@ -30,5 +30,9 @@ layout: default
 <template id="right.successfulregistration">{% t right.successfulregistration %}</template>
 <template id="right.message.sent">{% t right.message.sent %}</template>
 <template id="right.invalidZipcode">{% t right.invalidZipcode %}</template>
+<template id="right.zipNotFound">{% t right.zipNotFound %}</template>
 <template id="translation-sent">{% t right.message.sent %}</template>
 <template id="translation-copied">{% t right.message.success %}</template>
+{% if page.data %}
+<script id="page-data" type="application/json">{{ page.data | jsonify }}</script>
+{% endif %}
