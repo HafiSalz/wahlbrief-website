@@ -750,9 +750,14 @@ a.donate {
 
 .logos {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
+  max-width: 80%;
 }
 
-.logos > * {
+.logos .logo {
   display: flex;
+}
+
+.logos img {
+  max-width: 100%;
 }
