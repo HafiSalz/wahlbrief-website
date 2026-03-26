@@ -9,18 +9,6 @@
             <p id="subject">{% t right.subject %}</p>
         </div>
 
-        <div class="background-gray-100 p-4 mb-3">
-            <h4 id="final-munname" class="fw-bold mb-0"></h4>
-            <p id="final-munemail" class="mb-0 me-1 d-inline-block"></p>
-            <button class="btn copy p-0 d-inline-block" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="{% t right.message.copied %}"
-                data-clipboard-target="#final-munemail">
-                <i class="far fa-copy"></i>
-            </button>
-        </div>
-
-        {% include app/step-3-letter.html %}
-
         <p class="mb-0 mt-4" id="final-message">
             <i class='fas fa-info-circle me-2'></i>
             {% t right.message.intro %}
@@ -39,6 +27,19 @@
                 </button>
             </div>
         </div>
+
+        <div class="background-gray-100 p-4 mb-3">
+            <h4 id="final-munname" class="fw-bold mb-0"></h4>
+            <p id="final-munemail" class="mb-0 me-1 d-inline-block"></p>
+            <button class="btn copy p-0 d-inline-block" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="{% t right.message.copied %}"
+                data-clipboard-target="#final-munemail">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        {% include app/step-3-letter.html %}
+
         <div id="outro-bottom" class="col-12 col-xl-8 my-4 p-4 outro">
             {% include {{ page.app_outro }} %}
         </div>
