@@ -494,7 +494,9 @@ function navigateTo(step, nohistory) {
 
   const tab = new bootstrap.Tab(document.querySelector(`#step-${step}-tab`));
   tab.show();
-  scrollTop();
+  window.setTimeout(() => {
+    scrollTop()
+  }, 200)
 
   // Update element visibility based on step and screen size
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
