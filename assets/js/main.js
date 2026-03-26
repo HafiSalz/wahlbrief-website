@@ -739,7 +739,7 @@ elements.searchInput?.addEventListener("keyup", (e) => {
       return div;
     });
 
-    if (pageData.limitArs && matchArray.length <= 0) {
+    if (pageData && pageData.limitArs && matchArray.length <= 0) {
         elements.suggestions.innerHTML =
           "<div class='error'><i class='fas fa-times-circle me-2'></i><span>" + getTranslation("right.zipNotFound") + "</span></div>";
       return;
@@ -807,7 +807,7 @@ if (elements.copier) {
 
 function findMatches(keyword, zips) {
   return zips.filter((place) => {
-    if (pageData.limitArs && !pageData.limitArs.includes(place.ars)) {
+    if (pageData && pageData.limitArs && !pageData.limitArs.includes(place.ars)) {
       return false
     }
     return place.PLZ.toLowerCase().startsWith(keyword.toLowerCase())
