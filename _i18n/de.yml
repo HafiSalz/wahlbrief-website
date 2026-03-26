@@ -76,7 +76,7 @@ right:
     city: "Ort"
   preview: "Antrag generieren"
   preview-letter: "Briefwahl-Antrag versenden"
-  preview-description: "Das war's! Der Antrag kann nun per E-Mail an das zuständige Wahlamt übermittelt werden. Alle Angaben sollten vorher noch einmal sorgfältig überprüft werden: Falsche Angaben werden die Bearbeitung verzögern."
+  preview-description: "Fast fertig! Versenden Sie nun den Antrag per E-Mail an das zuständige Wahlamt. Alle Angaben sollten vorher noch einmal sorgfältig überprüft werden: Falsche Angaben werden die Bearbeitung verzögern."
   preview-address: "Address goes here. Lorem ipsum 65124"
   subject: "Antrag auf Briefwahlunterlagen"
   send: "E-Mail senden"
