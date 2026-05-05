@@ -1,0 +1,112 @@
+<div id="left-side" class="col-md-12 col-lg-6 background-primary pattern">
+    <div class="container sachsen-sidebar d-flex flex-column h-100 py-5 px-2 px-lg-5 overflow-auto">
+        <div class="sachsen-landing-frame">
+            {% include navbar.html %}
+            <div class="row">
+                {% include {{ page.app_intro }} %}
+            </div>
+            <div class="row mt-auto d-none d-lg-block sachsen-footer-row">
+                <div class="col-12">
+                    {% include nav.html %}
+                    {% include footer.html %}
+                </div>
+            </div>
+        </div>
+
+        <div id="bigletter" class="sachsen-preview-panel col-12">
+            <div class="sachsen-preview-card">
+                <h4 class="fw-bold mb-0">{% t left.preview %}</h4>
+            </div>
+
+            <div class="sachsen-municipality-card">
+                <h5 id="munname" class="fw-bold mb-1"></h5>
+                <p id="munemail" class="mb-0 me-1 d-inline-block"></p>
+                <button class="btn copy p-0 d-inline-block" data-bs-placement="top"
+                    data-bs-toggle="tooltip" title="{% t right.message.copied %}"
+                    data-clipboard-target="#munemail">
+                    <i class="far fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="sachsen-letter-card">
+                <p>{% t right.letter.title %}</p>
+                <p class="mb-0">
+                    {% t right.letter.name %}: <span class="fw-bold" id="name"></span><br />
+                    {% t right.letter.surname %}: <span class="fw-bold" id="surname"></span><br />
+                    {% t right.letter.birthday %}:
+                    <span class="fw-bold" id="birthdate"></span><span class="fw-bold"
+                        id="birthmonth"></span><span class="fw-bold" id="birthyear"></span><br />
+                    {% t right.letter.address %}:<br />
+                    <span class="fw-bold" id="street"></span><br data-br="street" style="display: none;" />
+                    <span class="fw-bold" id="zip"></span>
+                    <span class="fw-bold" id="city"></span><br data-br="zip" style="display: none;" /><br />
+                </p>
+
+                <p id="ogaddress">{% t right.letter.sendtomine %}</p>
+
+                <p class="mb-0" id="newaddress">{% t right.letter.sendalternative %}<br />
+                    <span class="fw-bold" id="newname"></span>
+                    <span class="fw-bold" id="newsurname"></span>
+                    <br data-br="newsurname" style="display: none;" />
+                    <span class="fw-bold" id="address"></span><br data-br="address" style="display: none;" />
+                    <span class="fw-bold" id="newstreet"></span><br data-br="newstreet"
+                        style="display: none;" />
+                    <span class="fw-bold" id="newzip"></span>
+                    <span class="fw-bold" id="newcity"></span><br data-br="newzip"
+                        style="display: none;" /><br />
+                </p>
+
+                <p class="mb-0">{% t right.letter.regards %}<br />
+                    <span class="fw-bold" id="id-name"></span>
+                    <span class="fw-bold" id="id-surname"></span>
+                    <span id="id-newname"></span>
+                    <span id="id-newsurname"></span>
+                    <span id="id-street"></span>
+                    <span id="id-newstreet"></span>
+                    <span id="id-address"></span>
+                    <span id="id-zip"></span>
+                    <span id="id-newzip"></span>
+                    <span id="id-city"></span>
+                    <span id="id-newcity"></span>
+                </p>
+            </div>
+        </div>
+
+        <div id="finalletter" class="sachsen-preview-panel sachsen-final-preview-panel col-12">
+            <div class="sachsen-preview-card">
+                <h4 class="fw-bold mb-0">{% t left.preview %}</h4>
+            </div>
+
+            <div class="sachsen-municipality-card">
+                <h5 id="final-munname" class="fw-bold mb-1"></h5>
+                <p id="final-munemail" class="mb-0 me-1 d-inline-block"></p>
+                <button class="btn copy p-0 d-inline-block" data-bs-toggle="tooltip"
+                    data-bs-placement="top" title="{% t right.message.copied %}"
+                    data-clipboard-target="#final-munemail">
+                    <i class="far fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="sachsen-letter-card">
+                {% include app/step-3-letter.html %}
+            </div>
+        </div>
+
+        {% include app/address-mobile.html %}
+
+        <div id="outro" class="col-12 outro mb-5 sachsen-outro-panel">
+            {% include {{ page.app_outro }} %}
+        </div>
+
+        {% include app/preview-mobile.html %}
+
+        <div class="d-block d-lg-none mt-5 scrollIndicator">
+            <div class="container">
+                <div class="text-center">
+                    <a href="#right-side" alt="Scroll down"><i class="fas fa-2x fa-chevron-down"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
