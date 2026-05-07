@@ -2,6 +2,28 @@
     <div class="container sachsen-sidebar d-flex flex-column h-100 py-5 px-2 px-lg-5 overflow-auto">
         <div class="sachsen-landing-frame">
             {% include navbar.html %}
+            <div class="dropdown sachsen-mobile-language-switcher d-lg-none">
+                <button class="dropdown-toggle" type="button" id="sachsenMobileLanguageMenu"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-globe me-1"></i>
+                    {% for lang in site.languages %}
+                    {% assign lang_short = site.data[lang].l10n.lang_short %}
+                    {% if lang == site.lang %}
+                    {{ lang_short }}
+                    {% endif %}
+                    {% endfor %}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="sachsenMobileLanguageMenu">
+                    {% for lang in site.languages %}
+                    {% assign lang_name = site.data[lang].l10n.lang_name %}
+                    {% if lang == site.default_lang %}
+                    <li><a class="dropdown-item" href="{{ site.baseurl_root }}{{ page.url }}">{{ lang_name }}</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{{ site.baseurl_root }}/{{ lang }}{{ page.url }}">{{ lang_name }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
             <div class="row">
                 {% include {{ page.app_intro }} %}
             </div>
