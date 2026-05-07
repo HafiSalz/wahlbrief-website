@@ -3,6 +3,29 @@
 
 <script src="{{ site.baseurl_root }}/assets/js/main.js"></script>
 
+{% if page.page_class == "page-sachsen-anhalt" %}
+<script>
+  (function () {
+    var defaultScrollTop = window.scrollTop;
+
+    window.scrollTop = function () {
+      var stepThreeActive = document.getElementById("step-3") &&
+        document.getElementById("step-3").classList.contains("active");
+      var stackedLayout = window.matchMedia("(max-width: 1199px)").matches;
+
+      if (stepThreeActive && stackedLayout) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      if (typeof defaultScrollTop === "function") {
+        defaultScrollTop();
+      }
+    };
+  })();
+</script>
+{% endif %}
+
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];

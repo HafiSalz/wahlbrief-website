@@ -242,6 +242,7 @@
     padding: 0 !important;
     border: 0;
     border-radius: 0;
+    background: transparent !important;
     background-color: transparent !important;
     box-shadow: none;
   }
@@ -911,15 +912,42 @@
     }
 
     #navbar-mobile {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 2147483647 !important;
+      display: block !important;
+      width: 100vw !important;
+      height: 0;
+      overflow-y: auto;
       background-color: #E86C9F;
       color: #fae8ef;
       font-family: "Sachsen Switzer", "Source Sans 3", system-ui, sans-serif;
     }
 
+    &.mobile-nav-open #navbar-mobile {
+      height: 100dvh !important;
+      min-height: 100vh;
+    }
+
+    #navbar-mobile > .container-fluid,
+    #navbar-mobile .overlay-content,
+    #navbar-mobile .overlay-footer {
+      position: absolute !important;
+      z-index: 2;
+    }
+
+    #navbar-mobile > .container-fluid {
+      top: 0;
+      right: 0;
+      left: 0;
+      padding-top: max(3rem, env(safe-area-inset-top)) !important;
+    }
+
     #navbar-mobile .closebtn {
       position: absolute;
-      top: 1.85rem;
+      top: max(1.85rem, env(safe-area-inset-top));
       right: 1.1rem;
+      z-index: 3;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -938,13 +966,40 @@
       line-height: 1;
     }
 
+    #navbar-mobile .overlay-content {
+      top: 24vh !important;
+      right: 0;
+      left: 0;
+      display: block !important;
+      width: 100% !important;
+      padding: 0 1.5rem;
+      text-align: center;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
     #navbar-mobile .overlay-content a {
+      display: block !important;
+      margin: 0.82rem 0;
+      text-decoration: none;
       color: #D1F24E;
       font-family: "Sachsen Switzer", "Source Sans 3", system-ui, sans-serif;
       font-size: clamp(1.56rem, #{"3.6vw + 0.66rem"}, 2.22rem);
       font-weight: 500;
       line-height: 1.05;
       text-transform: uppercase;
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    #navbar-mobile .overlay-footer {
+      top: 56vh !important;
+      right: 0;
+      bottom: auto !important;
+      left: 0;
+      padding: 0 1.5rem;
+      text-align: center;
     }
 
     #navbar-mobile .overlay-footer,
@@ -956,8 +1011,16 @@
     }
 
     #navbar-mobile .overlay-footer .social-links a {
-      color: #07133e;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      margin: 0 0.24rem;
+      border-radius: 999px;
+      color: #E86C9F;
       background-color: #fae8ef;
+      font-size: 1.25rem;
     }
 
     #intro {
@@ -1080,7 +1143,7 @@
     #step-1 input[type="text"] {
       width: 100%;
       min-height: var(--sachsen-control-height);
-      font-size: 0.85rem;
+      font-size: 16px;
     }
 
     #step-1 .form-floating > label {
@@ -1193,7 +1256,7 @@
     #birthday input[type="text"] {
       padding-right: 0.65rem !important;
       padding-left: 0.65rem !important;
-      font-size: 0.82rem;
+      font-size: 16px;
     }
 
     #birthday .form-floating > label {
@@ -1262,6 +1325,19 @@
 
     #step-2 .form-floating > label {
       color: rgba(7, 19, 62, 0.58);
+    }
+
+    #step-1 input,
+    #step-2 input,
+    #step-2 textarea,
+    #step-2 select,
+    #step-3 input,
+    #step-3 textarea,
+    #step-3 select,
+    #step-1 .form-control,
+    #step-2 .form-control,
+    #step-3 .form-control {
+      font-size: 16px !important;
     }
 
     #step-2 .sachsen-reminder {
@@ -1365,6 +1441,7 @@
       padding: 0 !important;
       border: 0 !important;
       border-left: 0 !important;
+      background: transparent !important;
       background-color: transparent !important;
       color: #07133e;
       box-shadow: none !important;
@@ -1490,6 +1567,7 @@
       padding: 0 !important;
       border: 0 !important;
       border-left: 0 !important;
+      background: transparent !important;
       background-color: transparent !important;
       color: #07133e;
       box-shadow: none !important;
