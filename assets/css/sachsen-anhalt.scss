@@ -455,6 +455,19 @@
     line-height: var(--sachsen-copy-line-height);
   }
 
+  .sachsen-step-1-description p {
+    margin-bottom: 0.75rem;
+  }
+
+  .sachsen-step-1-description p:last-child,
+  .sachsen-step-1-meta p:last-child {
+    margin-bottom: 0;
+  }
+
+  .sachsen-step-1-meta p {
+    margin-bottom: 0.45rem;
+  }
+
   #step-2 p,
   #step-2 .form-check-label,
   #step-3 p,
@@ -1154,6 +1167,7 @@
     }
 
     #step-1 .col-xl-10 > p,
+    #step-1 .sachsen-step-1-meta,
     .sachsen-mobile-toggle-row > p,
     .sachsen-mobile-toggle-note p,
     #step-2 .sachsen-reminder h4,
@@ -1245,6 +1259,23 @@
       margin-top: 1.05rem !important;
     }
 
+    #right-side .tab-content > .d-block.d-lg-none {
+      margin-top: 0.9rem;
+      padding-right: var(--sachsen-text-inset);
+      padding-left: var(--sachsen-text-inset);
+    }
+
+    #right-side .tab-content > .d-block.d-lg-none small {
+      display: block;
+      font-size: calc(var(--sachsen-copy-size) * 0.9);
+      line-height: var(--sachsen-copy-line-height);
+    }
+
+    #right-side .tab-content > .d-block.d-lg-none small > a[href*="impressum"] {
+      display: inline-block;
+      margin-top: 0.45rem;
+    }
+
     .scrollIndicator {
       display: none !important;
     }
@@ -1276,7 +1307,7 @@
       width: 100%;
       max-width: 100%;
       margin-top: 0.95rem !important;
-      margin-bottom: 1rem !important;
+      margin-bottom: 0 !important;
       overflow-x: hidden;
     }
 
@@ -1401,6 +1432,7 @@
 
     #step-2 #main-form > .sachsen-actions {
       margin-top: calc(var(--sachsen-mobile-gap) * 1.25) !important;
+      margin-bottom: 0 !important;
     }
 
     #step-2 #main-form > .sachsen-actions > [class*="col-"] {
@@ -1494,6 +1526,11 @@
       #right-side .tab-content > .d-block.d-lg-none {
         display: none !important;
       }
+    }
+
+    &:has(#step-2.show) #right-side > .container,
+    &:has(#step-2.active) #right-side > .container {
+      padding-bottom: 0.85rem !important;
     }
 
     &:has(#step-2.show) #bigletter,

@@ -5,8 +5,7 @@
             <button class="btn back-small mb-4 d-none d-lg-block"
                 onclick="backtofirstpage();">{% t right.back %}</button>
             <h2>{% t right.residence %}</h2>
-            <p class="sachsen-step-copy">Das Wahlamt benötigt zum Abgleich den vollständigen Namen (wie auf dem Ausweis), die vollständige Meldeadresse des Hauptwohnsitzes und das Geburtsdatum.</p>
-            <p class="sachsen-step-copy sachsen-step-copy-note">Alternativ kann der Antrag ohne Angaben generiert und persönliche Daten von Hand ergänzt werden.</p>
+            <p class="sachsen-step-copy">{% t right.optional %}</p>
         </div>
         {% include sachsen-anhalt/step-2-form.html %}
     </div>
