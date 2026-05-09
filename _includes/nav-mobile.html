@@ -34,7 +34,7 @@
     </div>
 
     <div class="overlay-content">
-        <a href="{{ site.baseurl }}/">{% t left.home %}</a>
+        <a href="{% if page.page_class == 'page-sachsen-anhalt' %}{{ site.baseurl_root }}/sachsen-anhalt/{% else %}{{ site.baseurl }}/{% endif %}">{% t left.home %}</a>
         <a href="{{ site.baseurl }}/about.html">{% t left.about %}</a>
         <a href="{{ site.baseurl }}/faq.html">{% t left.faq %}</a>
         <a href="{{ site.donate_url }}">{% t left.donate %}</a>
