@@ -55,6 +55,16 @@
 </div>
 
 <script>
+    function setSachsenThemeColor(color) {
+        if (!document.body.classList.contains("page-sachsen-anhalt")) {
+            return;
+        }
+        var themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta) {
+            themeMeta.setAttribute("content", color);
+        }
+    }
+
     function openNav() {
         var navbarMobile = document.getElementById("navbar-mobile");
         if (document.activeElement && typeof document.activeElement.blur === "function") {
@@ -66,6 +76,7 @@
         if (navbarMobile && navbarMobile.parentElement !== document.body) {
             document.body.appendChild(navbarMobile);
         }
+        setSachsenThemeColor("#757dc6");
         navbarMobile.style.height = "100%";
         document.body.classList.add("mobile-nav-open");
         document.documentElement.style.overflow = 'hidden';
@@ -76,6 +87,7 @@
     function closeNav() {
         document.getElementById("navbar-mobile").style.height = "0%";
         document.body.classList.remove("mobile-nav-open");
+        setSachsenThemeColor("#f4e7f5");
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         document.body.scroll = "";
