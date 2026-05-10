@@ -950,10 +950,6 @@ body.page-sachsen-anhalt {
   background-color: #f4e7f5;
 }
 
-html:has(body.page-sachsen-anhalt) {
-  background-color: #f4e7f5;
-}
-
 html:has(body.page-sachsen-anhalt.mobile-nav-open),
 body.page-sachsen-anhalt.mobile-nav-open {
   background-color: var(--sachsen-campaign-bg);

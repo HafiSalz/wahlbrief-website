@@ -3,6 +3,7 @@
   var ctaDelay = 10000;
   var pageColor = "#f4e7f5";
   var menuColor = "#757dc6";
+  var defaultThemeColor = null;
 
   function isSachsenPage() {
     return document.body && document.body.classList.contains("page-sachsen-anhalt");
@@ -46,6 +47,18 @@
     }, 180);
   }
 
+  function clearSafeAreaColor() {
+    setThemeColor(defaultThemeColor || pageColor);
+    document.documentElement.style.backgroundColor = "";
+    document.body.style.backgroundColor = "";
+  }
+
+  function syncClearSafeAreaColor() {
+    clearSafeAreaColor();
+    window.requestAnimationFrame(clearSafeAreaColor);
+    window.setTimeout(clearSafeAreaColor, 180);
+  }
+
   function showShareCta() {
     document.body.classList.add("sachsen-share-cta-visible");
   }
@@ -78,9 +91,12 @@
 
     var originalOpenNav = window.openNav;
     var originalCloseNav = window.closeNav;
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+    defaultThemeColor = themeMeta ? themeMeta.getAttribute("content") : pageColor;
 
     setViewportFitCover();
-    syncSafeAreaColor(pageColor);
+    syncClearSafeAreaColor();
 
     if (typeof originalOpenNav === "function") {
       window.openNav = function () {
@@ -94,7 +110,7 @@
     if (typeof originalCloseNav === "function") {
       window.closeNav = function () {
         originalCloseNav();
-        syncSafeAreaColor(pageColor);
+        syncClearSafeAreaColor();
       };
     }
   }
