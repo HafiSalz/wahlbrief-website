@@ -785,22 +785,7 @@
   #step-1 #zipcode:focus,
   #step-1 #zipcode:valid:focus:not(:placeholder-shown) {
     border-color: var(--sachsen-action-blue) !important;
-    outline: 0.15rem solid var(--sachsen-action-blue) !important;
-    outline-offset: -0.15rem;
     box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue) !important;
-    -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-  }
-
-  #step-1 #zipcode:-webkit-autofill:focus,
-  #step-1 #zipcode:valid:-webkit-autofill:focus:not(:placeholder-shown) {
-    border-color: var(--sachsen-action-blue) !important;
-    outline: 0.15rem solid var(--sachsen-action-blue) !important;
-    outline-offset: -0.15rem;
-    box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-    -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
   }
 
   #step-2 input[type="text"]:valid:focus:not(:placeholder-shown),
@@ -1849,22 +1834,7 @@ body.page-sachsen-anhalt.mobile-nav-open {
     #step-1 #zipcode:focus,
     #step-1 #zipcode:valid:focus:not(:placeholder-shown) {
       border-color: var(--sachsen-action-blue) !important;
-      outline: 0.15rem solid var(--sachsen-action-blue) !important;
-      outline-offset: -0.15rem;
       box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue) !important;
-      -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-        inset 0 0 0 1000px #fbf6fb !important;
-    }
-
-    #step-1 #zipcode:-webkit-autofill:focus,
-    #step-1 #zipcode:valid:-webkit-autofill:focus:not(:placeholder-shown) {
-      border-color: var(--sachsen-action-blue) !important;
-      outline: 0.15rem solid var(--sachsen-action-blue) !important;
-      outline-offset: -0.15rem;
-      box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-        inset 0 0 0 1000px #fbf6fb !important;
-      -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-        inset 0 0 0 1000px #fbf6fb !important;
     }
 
     #step-2 input[type="text"]:valid:focus:not(:placeholder-shown),
