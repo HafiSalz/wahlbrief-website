@@ -558,40 +558,41 @@
   }
 
   #step-1 .input-group.form-floating {
-    border: 0;
+    border: 1px solid rgba(7, 19, 62, 0.14);
     border-radius: 20px;
-    background-color: transparent;
-    box-shadow: none;
-    overflow: visible;
+    background-color: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 0.125rem 0.375rem rgba(7, 19, 62, 0.06);
+    overflow: hidden;
   }
 
   #step-1 .input-group.form-floating:focus-within {
-    box-shadow: none;
+    box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
+      0 0.125rem 0.375rem rgba(7, 19, 62, 0.06);
   }
 
   #step-1 .input-group.form-floating:has(input:valid:not(:placeholder-shown)) {
-    border-color: transparent;
-    background-color: transparent !important;
-    box-shadow: none;
+    border-color: #D1F24E;
+    background-color: rgba(255, 255, 255, 0.78);
+    box-shadow: inset 0 0 0 0.15rem #D1F24E,
+      0 0.125rem 0.375rem rgba(7, 19, 62, 0.06);
   }
 
   #step-1 input[type="text"] {
     min-height: 4.2rem;
-    border: 1px solid rgba(7, 19, 62, 0.14) !important;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.58) !important;
+    border: 0 !important;
+    border-radius: 20px 0 0 20px;
+    background-color: transparent;
     color: #07133e;
     font-size: 0.9rem;
     font-weight: 300;
-    box-shadow: 0 0.125rem 0.375rem rgba(7, 19, 62, 0.06) !important;
+    box-shadow: none !important;
     outline: none;
   }
 
   #step-1 input[type="text"]:valid:not(:placeholder-shown),
   #step-1 input[type="text"]:valid:focus:not(:placeholder-shown) {
-    border-color: #D1F24E !important;
-    background-color: rgba(255, 255, 255, 0.58) !important;
-    box-shadow: inset 0 0 0 0.15rem #D1F24E !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
   }
 
   #step-1 .form-floating > label {
@@ -627,21 +628,8 @@
     z-index: 10;
     width: 100%;
     border-radius: 20px;
-    background-color: transparent;
     box-shadow: 0 0.5rem 1rem rgba(7, 19, 62, 0.1);
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    contain: paint;
-    isolation: isolate;
-    transform: translateZ(0);
-  }
-
-  #step-1 #autocomplete-list div {
-    background-color: #ffffff !important;
-    background-image: none !important;
-    background-clip: padding-box;
+    overflow: hidden;
   }
 
   #step-1 #autocomplete-list div:first-child {
@@ -720,28 +708,6 @@
     box-shadow: inset 0 0 0 1000px #fbf6fb !important;
   }
 
-  #step-1 #zipcode:-webkit-autofill,
-  #step-1 #zipcode:-webkit-autofill:hover {
-    -webkit-text-fill-color: #07133e;
-    caret-color: #07133e;
-    transition: background-color 9999s ease-out;
-    background-color: rgba(255, 255, 255, 0.58) !important;
-    box-shadow: inset 0 0 0 1000px #fbf6fb !important;
-    -webkit-box-shadow: inset 0 0 0 1000px #fbf6fb !important;
-  }
-
-  #step-1 #zipcode:-webkit-autofill:focus {
-    border-color: var(--sachsen-action-blue) !important;
-    -webkit-text-fill-color: #07133e;
-    caret-color: #07133e;
-    transition: background-color 9999s ease-out;
-    background-color: rgba(255, 255, 255, 0.58) !important;
-    box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-    -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-  }
-
   #step-2 input[type="text"]:valid:-webkit-autofill:not(:placeholder-shown),
   #step-2 input[type="email"]:valid:-webkit-autofill:not(:placeholder-shown),
   #step-2 input[type="number"]:valid:-webkit-autofill:not(:placeholder-shown) {
@@ -757,50 +723,9 @@
   }
 
   #step-1 .form-control:focus {
-    border-color: var(--sachsen-action-blue) !important;
-    background-color: rgba(255, 255, 255, 0.58) !important;
-    box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue) !important;
-  }
-
-  #step-1 #zipcode:valid:not(:placeholder-shown),
-  #step-1 #zipcode:valid:focus:not(:placeholder-shown),
-  #step-1 #zipcode:valid:-webkit-autofill:not(:placeholder-shown),
-  #step-1 #zipcode:valid:-webkit-autofill:focus:not(:placeholder-shown) {
-    border-color: #D1F24E !important;
-    background-color: rgba(255, 255, 255, 0.58) !important;
-    box-shadow: inset 0 0 0 0.15rem #D1F24E !important;
-    -webkit-box-shadow: inset 0 0 0 0.15rem #D1F24E,
-      inset 0 0 0 1000px #fbf6fb !important;
-  }
-
-  #step-1 #zipcode:valid:-webkit-autofill:focus:not(:placeholder-shown),
-  #step-1 #zipcode:-webkit-autofill:focus {
-    border-color: var(--sachsen-action-blue) !important;
-    box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-    -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-  }
-
-  #step-1 #zipcode:focus,
-  #step-1 #zipcode:valid:focus:not(:placeholder-shown) {
-    border-color: var(--sachsen-action-blue) !important;
-    outline: 0.15rem solid var(--sachsen-action-blue) !important;
-    outline-offset: -0.15rem;
-    box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue) !important;
-    -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-  }
-
-  #step-1 #zipcode:-webkit-autofill:focus,
-  #step-1 #zipcode:valid:-webkit-autofill:focus:not(:placeholder-shown) {
-    border-color: var(--sachsen-action-blue) !important;
-    outline: 0.15rem solid var(--sachsen-action-blue) !important;
-    outline-offset: -0.15rem;
-    box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
-    -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
-      inset 0 0 0 1000px #fbf6fb !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
   }
 
   #step-2 input[type="text"]:valid:focus:not(:placeholder-shown),
@@ -946,6 +871,22 @@
       left: calc(50vw + clamp(2rem, 3.2vw, 4rem));
       right: clamp(2rem, 3.2vw, 4rem);
       z-index: 3;
+    }
+
+    #step-1 .sachsen-step-1-description p {
+      margin-bottom: 0.15rem;
+    }
+
+    #step-1 .sachsen-step-1-description p:last-child {
+      margin-bottom: 0;
+    }
+
+    #step-1 #autocomplete-list {
+      max-height: min(14rem, 31vh);
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
     }
 
     &:has(#step-2.show) #right-side > .container,
@@ -1452,6 +1393,23 @@ body.page-sachsen-anhalt.mobile-nav-open {
       margin-top: 1.05rem;
     }
 
+    #step-1 .input-group.form-floating {
+      border: 0;
+      background-color: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    #step-1 .input-group.form-floating:focus-within {
+      box-shadow: none;
+    }
+
+    #step-1 .input-group.form-floating:has(input:valid:not(:placeholder-shown)) {
+      border-color: transparent;
+      background-color: transparent !important;
+      box-shadow: none;
+    }
+
     #step-1 .input-group.form-floating,
     #step-1 input[type="text"],
     #step-1 .btn-new,
@@ -1466,6 +1424,9 @@ body.page-sachsen-anhalt.mobile-nav-open {
     #step-1 input[type="text"] {
       width: 100%;
       min-height: var(--sachsen-control-height);
+      border: 1px solid rgba(7, 19, 62, 0.14) !important;
+      background-color: rgba(255, 255, 255, 0.58) !important;
+      box-shadow: 0 0.125rem 0.375rem rgba(7, 19, 62, 0.06) !important;
       font-size: 16px;
     }
 
