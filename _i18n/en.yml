@@ -199,6 +199,7 @@ sachsen_anhalt:
   step_1:
     description_1: "Please enter the post code of your registered address first."
     description_2: "Your local citizens' registration office is usually responsible for your postal vote application."
+    privacy_intro: "We only transmit and store your data if you explicitly request it. See also our"
     privacy: "We only transmit and store your data if you explicitly request it. See also our <a href='/terms.html' target='_blank'>privacy policy</a>."
   share_cta:
     title: "Vote easily"
