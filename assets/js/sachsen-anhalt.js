@@ -84,6 +84,44 @@
     }
   }
 
+  function initBirthdayAutoAdvance() {
+    if (!isSachsenPage()) {
+      return;
+    }
+
+    var fields = [
+      {
+        current: document.getElementById("form-day"),
+        next: document.getElementById("form-month"),
+      },
+      {
+        current: document.getElementById("form-month"),
+        next: document.getElementById("form-year"),
+      },
+    ];
+
+    fields.forEach(function (field) {
+      if (!field.current || !field.next) {
+        return;
+      }
+
+      field.current.addEventListener("input", function (event) {
+        var isDeleting = event.inputType && event.inputType.indexOf("delete") === 0;
+
+        if (isDeleting) {
+          return;
+        }
+
+        if (
+          field.current.value.length >= field.current.maxLength &&
+          field.current.validity.valid
+        ) {
+          field.next.focus();
+        }
+      });
+    });
+  }
+
   function initSafeAreas() {
     if (!isSachsenPage()) {
       return;
@@ -116,9 +154,11 @@
     document.addEventListener("DOMContentLoaded", function () {
       initSafeAreas();
       initShareCta();
+      initBirthdayAutoAdvance();
     });
   } else {
     initSafeAreas();
     initShareCta();
+    initBirthdayAutoAdvance();
   }
 })();

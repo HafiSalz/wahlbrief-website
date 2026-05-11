@@ -107,6 +107,10 @@
     z-index: 1;
   }
 
+  .sachsen-outro-panel {
+    display: none !important;
+  }
+
   .sachsen-landing-frame {
     --sachsen-panel-x: 5rem;
     display: flex;
@@ -954,6 +958,13 @@
       display: flex !important;
     }
 
+    &:has(#step-2.show) #finalletter,
+    &:has(#step-2.active) #finalletter,
+    &:has(#step-3.show) #bigletter,
+    &:has(#step-3.active) #bigletter {
+      display: none !important;
+    }
+
     &.sachsen-share-cta-visible:has(#step-3.show) #finalletter,
     &.sachsen-share-cta-visible:has(#step-3.active) #finalletter {
       display: none !important;
@@ -1414,6 +1425,21 @@ body.page-sachsen-anhalt.mobile-nav-open {
       box-shadow: none;
     }
 
+    #step-1 .input-group.form-floating:has(#zipcode:valid:not(:placeholder-shown))::after {
+      content: "\f058";
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      z-index: 3;
+      color: #D1F24E;
+      font-family: "Font Awesome 5 Free";
+      font-size: 1.45rem;
+      font-weight: 900;
+      line-height: 1;
+      pointer-events: none;
+      transform: translateY(-50%);
+    }
+
     #step-1 .input-group.form-floating,
     #step-1 input[type="text"],
     #step-1 .btn-new,
@@ -1796,6 +1822,7 @@ body.page-sachsen-anhalt.mobile-nav-open {
     #step-1 #zipcode:valid:-webkit-autofill:not(:placeholder-shown),
     #step-1 #zipcode:valid:-webkit-autofill:focus:not(:placeholder-shown) {
       border-color: #D1F24E !important;
+      padding-right: 3.25rem;
       background-color: rgba(255, 255, 255, 0.58) !important;
       box-shadow: inset 0 0 0 0.15rem #D1F24E !important;
       -webkit-box-shadow: inset 0 0 0 0.15rem #D1F24E,
@@ -1828,6 +1855,13 @@ body.page-sachsen-anhalt.mobile-nav-open {
       outline-offset: -0.15rem;
       box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
         inset 0 0 0 1000px #fbf6fb !important;
+      -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
+        inset 0 0 0 1000px #fbf6fb !important;
+    }
+
+    #step-1 #zipcode:invalid:not(:placeholder-shown) {
+      border-color: var(--sachsen-action-blue) !important;
+      box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue) !important;
       -webkit-box-shadow: inset 0 0 0 0.15rem var(--sachsen-action-blue),
         inset 0 0 0 1000px #fbf6fb !important;
     }
