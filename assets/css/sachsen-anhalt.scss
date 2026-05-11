@@ -848,6 +848,10 @@
       padding: 3rem var(--sachsen-panel-x);
     }
 
+    #intro {
+      margin-top: clamp(2.75rem, 5vh, 4.25rem);
+    }
+
     @media (min-width: 87.5rem) {
       #step-1 .input-group-append {
         display: flex !important;
