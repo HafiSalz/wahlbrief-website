@@ -115,45 +115,47 @@
         </div>
 
         <div id="sachsen-share-cta" class="sachsen-share-cta col-12" aria-live="polite">
-            <h2>{% t sachsen_anhalt.share_cta.title %}</h2>
-            <p class="sachsen-share-copy">
-                {% t sachsen_anhalt.share_cta.text_1 %}
-            </p>
-            <p class="sachsen-share-copy">
-                {% t sachsen_anhalt.share_cta.text_2 %}
-            </p>
-            <div class="sachsen-share-actions" aria-label="{% t left.share %}">
-                <a class="copy" data-clipboard-text="{% t sachsen_anhalt.sharing.copy %}" href="#"
-                    data-bs-placement="top" data-bs-toggle="tooltip" title="{% t right.message.sharecopy %}">
-                    <i class="far fa-copy"></i>
-                </a>
-                <a
-                    href="mailto:?subject={% t sachsen_anhalt.sharing.email.subject %}&amp;body={% t sachsen_anhalt.sharing.email.body %}">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://facebook.com/sharer/sharer.php?u={{ page.share_url }}" target="_blank"
-                    rel="noreferrer nopener">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://bsky.app/intent/compose?text={% t sachsen_anhalt.sharing.bluesky %}" target="_blank"
-                    rel="noreferrer nopener">
-                    <i class="fa-brands fa-bluesky"></i>
-                </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.share_url }}"
-                    target="_blank" rel="noreferrer nopener">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://t.me/share/url?text={% t sachsen_anhalt.sharing.telegram %}&amp;url={{ page.share_url }}"
-                    target="_blank" rel="noreferrer nopener">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </a>
-                <a href="https://wa.me/?text={% t sachsen_anhalt.sharing.whatsapp %}" target="_blank"
-                    rel="noreferrer nopener">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
+            <div class="sachsen-share-primary">
+                <h2>{% t sachsen_anhalt.share_cta.title %}</h2>
+                <p class="sachsen-share-copy">
+                    {% t sachsen_anhalt.share_cta.text_1 %}
+                </p>
+                <p class="sachsen-share-copy">
+                    {% t sachsen_anhalt.share_cta.text_2 %}
+                </p>
+                <div class="sachsen-share-actions" aria-label="{% t left.share %}">
+                    <a class="copy" data-clipboard-text="{% t sachsen_anhalt.sharing.copy %}" href="#"
+                        data-bs-placement="top" data-bs-toggle="tooltip" title="{% t right.message.sharecopy %}">
+                        <i class="far fa-copy"></i>
+                    </a>
+                    <a
+                        href="mailto:?subject={% t sachsen_anhalt.sharing.email.subject %}&amp;body={% t sachsen_anhalt.sharing.email.body %}">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://facebook.com/sharer/sharer.php?u={{ page.share_url }}" target="_blank"
+                        rel="noreferrer nopener">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://bsky.app/intent/compose?text={% t sachsen_anhalt.sharing.bluesky %}" target="_blank"
+                        rel="noreferrer nopener">
+                        <i class="fa-brands fa-bluesky"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.share_url }}"
+                        target="_blank" rel="noreferrer nopener">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://t.me/share/url?text={% t sachsen_anhalt.sharing.telegram %}&amp;url={{ page.share_url }}"
+                        target="_blank" rel="noreferrer nopener">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                    <a href="https://wa.me/?text={% t sachsen_anhalt.sharing.whatsapp %}" target="_blank"
+                        rel="noreferrer nopener">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
             <div class="sachsen-share-donate">
-                <p class="sachsen-share-donate-text">Das Projekt wird von FragDenStaat betrieben,<br class="sachsen-desktop-break"> bitte unterstütze uns mit einer Spende.</p>
+                <p class="sachsen-share-donate-text">{% t left.donateTitle %}</p>
                 <a class="sachsen-share-donate-button" href="{{ site.donate_url }}">{% t left.donateButton %}</a>
             </div>
             <div class="sachsen-share-footer">

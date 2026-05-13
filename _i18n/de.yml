@@ -208,7 +208,7 @@ sachsen_anhalt:
   share_cta:
     title: "Wähl einfach"
     text_1: "Viele Menschen wissen nicht, wie unkompliziert und schnell die Briefwahl funktioniert."
-    text_2: "Jede Stimme zählt - teile jetzt Wahlbrief und hilf, die Information weiterzuverbreiten!"
+    text_2: "<span class='sachsen-share-emphasis'>Jede Stimme zählt</span> - teile jetzt Wahlbrief und hilf, die Information weiterzuverbreiten!"
   sharing:
     copy: "Ich habe gerade Briefwahlunterlagen zur Landtagswahl in Sachsen-Anhalt beantragt.%0D%0ABist du auch dabei? Jede Stimme zählt.%0D%0Ahttps://wahlbrief.de/sachsen-anhalt/"
     email:

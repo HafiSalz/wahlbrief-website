@@ -4,6 +4,7 @@
   var pageColor = "#f4e7f5";
   var menuColor = "#757dc6";
   var defaultThemeColor = "transparent";
+  var initialFinalMessageHtml = null;
 
   function isSachsenPage() {
     return document.body && document.body.classList.contains("page-sachsen-anhalt");
@@ -61,6 +62,16 @@
 
   function showShareCta() {
     document.body.classList.add("sachsen-share-cta-visible");
+
+    if (window.matchMedia("(max-width: 74.999rem)").matches) {
+      window.requestAnimationFrame(function () {
+        var shareCta = document.getElementById("sachsen-share-cta");
+
+        if (shareCta) {
+          shareCta.scrollIntoView({ block: "start", behavior: "smooth" });
+        }
+      });
+    }
   }
 
   function scheduleShareCta() {
@@ -71,9 +82,36 @@
     ctaTimer = window.setTimeout(showShareCta, ctaDelay);
   }
 
+  function resetShareCta() {
+    if (ctaTimer) {
+      window.clearTimeout(ctaTimer);
+      ctaTimer = null;
+    }
+
+    document.body.classList.remove("sachsen-share-cta-visible");
+
+    var finalMessage = document.getElementById("final-message");
+    var sendButton = document.getElementById("send-email");
+
+    if (finalMessage && initialFinalMessageHtml !== null) {
+      finalMessage.innerHTML = initialFinalMessageHtml;
+      finalMessage.classList.remove("success");
+    }
+
+    if (sendButton) {
+      sendButton.setAttribute("href", "#");
+    }
+  }
+
   function initShareCta() {
     var sendButton = document.getElementById("send-email");
     var copyButton = document.getElementById("copy-text");
+    var stepTwoTab = document.getElementById("step-2-tab");
+    var finalMessage = document.getElementById("final-message");
+
+    if (finalMessage) {
+      initialFinalMessageHtml = finalMessage.innerHTML;
+    }
 
     if (sendButton) {
       sendButton.addEventListener("click", scheduleShareCta);
@@ -81,6 +119,19 @@
 
     if (copyButton) {
       copyButton.addEventListener("click", scheduleShareCta);
+    }
+
+    if (stepTwoTab) {
+      stepTwoTab.addEventListener("shown.bs.tab", resetShareCta);
+    }
+
+    if (typeof window.backtosecondpage === "function") {
+      var originalBackToSecondPage = window.backtosecondpage;
+
+      window.backtosecondpage = function () {
+        resetShareCta();
+        return originalBackToSecondPage.apply(this, arguments);
+      };
     }
   }
 

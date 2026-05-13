@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Sachsen Switzer";
-  src: url("../fonts/sachsen-anhalt/Switzer-Light.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Switzer-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "Sachsen Switzer";
-  src: url("../fonts/sachsen-anhalt/Switzer-LightItalic.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Switzer-LightItalic.woff2") format("woff2");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "Sachsen Switzer";
-  src: url("../fonts/sachsen-anhalt/Switzer-Regular.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Switzer-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -27,7 +27,7 @@
 
 @font-face {
   font-family: "Sachsen Switzer";
-  src: url("../fonts/sachsen-anhalt/Switzer-Italic.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Switzer-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -35,7 +35,7 @@
 
 @font-face {
   font-family: "Sachsen Switzer";
-  src: url("../fonts/sachsen-anhalt/Switzer-Medium.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Switzer-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -43,7 +43,7 @@
 
 @font-face {
   font-family: "Sachsen Switzer";
-  src: url("../fonts/sachsen-anhalt/Switzer-Semibold.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Switzer-Semibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -51,7 +51,7 @@
 
 @font-face {
   font-family: "Sachsen Switzer";
-  src: url("../fonts/sachsen-anhalt/Switzer-Bold.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Switzer-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -59,7 +59,7 @@
 
 @font-face {
   font-family: "Sachsen Zodiak";
-  src: url("../fonts/sachsen-anhalt/Zodiak-Extrabold.otf") format("opentype");
+  src: url("../fonts/sachsen-anhalt/Zodiak-Extrabold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -264,14 +264,24 @@
   .sachsen-share-cta {
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: calc(100vh - 6rem);
     margin: 0;
-    padding: 3rem 2.5rem;
+    padding: 0 2.5rem 3rem;
     border-radius: 32px;
     background-color: var(--sachsen-campaign-bg);
     color: var(--sachsen-campaign-highlight);
     overflow: hidden;
+  }
+
+  .sachsen-share-primary {
+    width: calc(100% + 5rem);
+    min-height: 60%;
+    margin: 0 -2.5rem;
+    padding: clamp(3.18rem, #{"0.45vw + 2.86rem"}, 3.55rem) 2.5rem clamp(1.03rem, #{"0.57vw + 0.72rem"}, 1.52rem);
+    border-radius: 32px;
+    background-color: var(--sachsen-campaign-bg);
+    box-shadow: 0 1rem 1.75rem rgba(39, 35, 95, 0.3);
   }
 
   .sachsen-share-cta h2 {
@@ -279,7 +289,7 @@
     margin: 0 0 1.75rem;
     color: var(--sachsen-campaign-highlight);
     font-family: "Sachsen Zodiak", "Baskervville", Georgia, serif;
-    font-size: clamp(3.05rem, #{"2.55vw + 1.12rem"}, 5rem);
+    font-size: clamp(3.11rem, #{"2.6vw + 1.14rem"}, 5.1rem);
     font-weight: 800;
     line-height: 0.86;
     -webkit-text-stroke: 0.012em currentColor;
@@ -300,12 +310,16 @@
     margin-bottom: 0;
   }
 
+  .sachsen-share-emphasis {
+    font-weight: 600;
+  }
+
   .sachsen-share-actions {
     display: flex;
     flex-wrap: wrap;
     gap: clamp(0.46rem, #{"0.34vw + 0.28rem"}, 0.72rem);
     max-width: 36rem;
-    margin: clamp(1.3rem, #{"0.9vw + 0.7rem"}, 2rem) 0 clamp(1.25rem, #{"0.8vw + 0.76rem"}, 2rem);
+    margin: clamp(1.75rem, #{"1vw + 0.9rem"}, 2.55rem) 0 clamp(1.25rem, #{"0.8vw + 0.76rem"}, 2rem);
   }
 
   .sachsen-share-actions a {
@@ -333,7 +347,7 @@
     align-items: center;
     gap: clamp(1rem, #{"0.9vw + 0.45rem"}, 1.8rem);
     max-width: 38rem;
-    margin-top: clamp(2.85rem, #{"1.95vw + 1.15rem"}, 4.35rem);
+    margin-top: clamp(4.65rem, #{"2.42vw + 1.85rem"}, 6.6rem);
     margin-bottom: 0;
   }
 
@@ -368,10 +382,6 @@
   .sachsen-share-donate-button:focus {
     color: var(--sachsen-campaign-bg);
     background-color: var(--sachsen-campaign-ink);
-  }
-
-  .sachsen-desktop-break {
-    display: block;
   }
 
   .sachsen-share-footer {
@@ -879,6 +889,18 @@
     box-shadow: inset 0 0 0 0.15rem #D1F24E !important;
   }
 
+  @media (min-width: 75rem) {
+    #step-2 .form-control,
+    #step-2 .sachsen-form-block,
+    #step-2 #election-hints {
+      border-radius: 20px;
+    }
+
+    #step-2 #birthday .form-control {
+      border-radius: 16px;
+    }
+  }
+
   .form-check-input:checked,
   .tgl-light:checked + .tgl-btn {
     border-color: #D1F24E;
@@ -1040,7 +1062,7 @@
 
     .sachsen-share-cta {
       min-height: calc(100vh - 3rem - 20px);
-      padding: 3rem 2.5rem;
+      padding: 0 2.5rem 3rem;
     }
 
     &:has(#step-2.show) .sachsen-letter-card,
@@ -1437,7 +1459,7 @@ body.page-sachsen-anhalt.mobile-nav-open {
     .campaign-title {
       max-width: 100%;
       margin-bottom: 0.95rem;
-      font-size: clamp(2.2rem, #{"7.14vw + 0.61rem"}, 3.52rem);
+      font-size: clamp(2.24rem, #{"7.28vw + 0.62rem"}, 3.59rem);
       overflow-wrap: break-word;
     }
 
@@ -2278,7 +2300,7 @@ body.page-sachsen-anhalt.mobile-nav-open {
 
         #sachsen-share-cta {
           margin-top: var(--sachsen-mobile-gutter);
-          margin-bottom: calc(var(--sachsen-mobile-gap) * 0.63);
+          margin-bottom: calc(var(--sachsen-mobile-gap) * 0.76);
         }
 
         #preview {
@@ -2327,13 +2349,19 @@ body.page-sachsen-anhalt.mobile-nav-open {
 
     .sachsen-share-cta {
       min-height: auto;
-      padding: clamp(1.8rem, #{"3vw + 0.95rem"}, 2.5rem) clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem) clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem);
+      padding: 0 clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem) clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem);
       background-color: var(--sachsen-campaign-bg);
       color: var(--sachsen-campaign-highlight);
     }
 
-    .sachsen-desktop-break {
-      display: none;
+    .sachsen-share-primary {
+      width: calc(100% + (clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem) * 2));
+      min-height: auto;
+      margin-right: calc(clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem) * -1);
+      margin-left: calc(clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem) * -1);
+      padding: clamp(2.16rem, #{"3.6vw + 1.14rem"}, 3rem) clamp(1.45rem, #{"3vw + 0.7rem"}, 2.15rem) calc(var(--sachsen-mobile-gap) * 1.1);
+      border-radius: inherit;
+      box-shadow: 0 0.8rem 1.45rem rgba(39, 35, 95, 0.28);
     }
 
     .sachsen-share-cta h2 {
@@ -2355,14 +2383,14 @@ body.page-sachsen-anhalt.mobile-nav-open {
 
     .sachsen-share-cta .sachsen-share-donate-text {
       color: var(--sachsen-campaign-ink) !important;
-      font-size: clamp(1.08rem, #{"2.35vw + 0.5rem"}, 1.4rem) !important;
+      font-size: clamp(1.14rem, #{"2.45vw + 0.54rem"}, 1.48rem) !important;
     }
 
     .sachsen-share-actions {
       justify-content: space-between;
       width: 100%;
       gap: clamp(0.34rem, #{"1vw + 0.08rem"}, 0.52rem);
-      margin-top: calc(var(--sachsen-mobile-gap) * 0.9);
+      margin-top: calc(var(--sachsen-mobile-gap) * 1.25);
       margin-bottom: calc(var(--sachsen-mobile-gap) * 1.45);
     }
 
@@ -2378,7 +2406,7 @@ body.page-sachsen-anhalt.mobile-nav-open {
 
     .sachsen-share-donate {
       display: block;
-      margin-top: calc(var(--sachsen-mobile-gap) * 1.35);
+      margin-top: calc(var(--sachsen-mobile-gap) * 3.25);
     }
 
     .sachsen-share-donate-button {
@@ -2394,7 +2422,7 @@ body.page-sachsen-anhalt.mobile-nav-open {
 
     .sachsen-share-nav {
       gap: clamp(0.48rem, #{"1.4vw + 0.14rem"}, 0.68rem);
-      margin-top: calc(var(--sachsen-mobile-gap) * 1.05);
+      margin-top: calc(var(--sachsen-mobile-gap) * 1.25);
       font-size: calc(var(--sachsen-copy-size) * 0.88);
     }
 

@@ -204,7 +204,7 @@ sachsen_anhalt:
   share_cta:
     title: "Vote easily"
     text_1: "Many people do not know how quick and easy postal voting is."
-    text_2: "Every vote counts - share Wahlbrief now and help spread the word!"
+    text_2: "<span class='sachsen-share-emphasis'>Every vote counts</span> - share Wahlbrief now and help spread the word!"
   sharing:
     copy: "I have just applied for postal voting documents for the state election in Saxony-Anhalt.%0D%0AAre you in too? Every vote counts.%0D%0Ahttps://wahlbrief.de/sachsen-anhalt/"
     email:
